@@ -1,0 +1,12 @@
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Data.dll.config
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Data.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Data.pdb
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\EntityFramework.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\EntityFramework.xml
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Private\POC\OnlineExaminationSystem\OES.Data\obj\Debug\OES.Data.csprojResolveAssemblyReference.cache
+D:\Private\POC\OnlineExaminationSystem\OES.Data\obj\Debug\OES.Data.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Data\obj\Debug\OES.Data.pdb
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Model.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Model.pdb

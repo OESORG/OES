@@ -1,0 +1,16 @@
+﻿@model OnlineExaminationSystem.Models.PartialLoginModel
+@{
+    Layout = null;
+}
+
+<ul class="nav navbar-nav navbar-right">
+    @if (Model.IsLogedIn)
+    {
+        <li><p class="navbar-text">Welcom @Model.UserName</p></li>
+        <li>@Html.ActionLink("Log out", "Logoff")</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Login", "Login")</li>
+    }
+</ul>

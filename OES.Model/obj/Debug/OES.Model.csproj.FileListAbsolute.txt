@@ -1,0 +1,5 @@
+D:\Private\POC\OnlineExaminationSystem\OES.Model\bin\Debug\OES.Model.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Model\bin\Debug\OES.Model.pdb
+D:\Private\POC\OnlineExaminationSystem\OES.Model\obj\Debug\OES.Model.dll
+D:\Private\POC\OnlineExaminationSystem\OES.Model\obj\Debug\OES.Model.pdb
+D:\Private\POC\OnlineExaminationSystem\OES.Model\bin\Debug\OES.Model.dll.config
