@@ -13,7 +13,11 @@ namespace OnlineExaminationSystem
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
+            routes.MapRoute(
+               name: "Instructor",
+               url: "Instructor/{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+               );
             routes.MapRoute(
                 name: "Admin",
                 url: "Admin/{controller}/{action}/{id}",

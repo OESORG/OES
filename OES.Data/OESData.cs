@@ -36,6 +36,8 @@ namespace OES.Data
 
         public DbSet<User> Users { get; set; }
 
+        public System.Data.Entity.DbSet<OES.Model.Examination.Exam> Exams { get; set; }
+
     }
 
     //public class EOSDBInitializer : CreateDatabaseIfNotExists<EOSData>
