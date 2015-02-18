@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OES.Model.Examination.Registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Semester
+        </th>
+        <th>
+            Course Code
+        </th>
+        <th>
+            Course Title
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester.SemesterTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Students", "Students", new { id = item.RegistrationId }) |
+                @Html.ActionLink("Exams", "Index", "Exams", routeValues: new { id = item.RegistrationId }, htmlAttributes: null)
+            </td>
+        </tr>
+    }
+
+</table>
