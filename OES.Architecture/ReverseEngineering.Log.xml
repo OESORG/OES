@@ -6,14 +6,43 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2015-02-10T21:01:44" Importance="High" Text="Reverse Engineering Started." />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES' -  (Package)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model' -  (Package)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination' -  (Package)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Medium" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination::QuestionType' -  (Enumeration)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination::QuestionType::Complete' -  (EnumerationLiteral)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination::QuestionType::MCQ' -  (EnumerationLiteral)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination::QuestionType::TrueFalse' -  (EnumerationLiteral)" />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="High" Text="(1) type(s) fully reverse engineered." />
-  <Message Timestamp="2015-02-10T21:01:45" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+  <Message Timestamp="2015-02-17T21:19:15" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'e6bc7e2e-cba8-4c58-874d-bdb45074b0ab' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination::Registration' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Examination::StudentRegistration' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Medium" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Admin' -  (Class)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Admin::Admin' -  (Operation)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Medium" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Instructor' -  (Class)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Instructor::Instructor' -  (Operation)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Instructor::Registrations' -  (Property)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Medium" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Student' -  (Class)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Student::Age' -  (Property)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Student::BirthDate' -  (Property)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Student::Registrations' -  (Property)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::Student::Student' -  (Operation)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::OES::Model::Users::User' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System::Collections' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System::Collections::Generic::List&lt;Registration‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System::Collections::Generic::List&lt;StudentRegistration‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'OES.Architecture::System::DateTime' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::Admin to OES.Architecture::OES::Model::Users::User (Generalization)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::Instructor to OES.Architecture::System::Collections::Generic::List&lt;Registration‎&gt; (Association)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::Instructor to OES.Architecture::OES::Model::Users::User (Generalization)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::Student to OES.Architecture::System::DateTime (Association)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::Student to OES.Architecture::System::Collections::Generic::List&lt;StudentRegistration‎&gt; (Association)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::Student to OES.Architecture::OES::Model::Users::User (Generalization)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Users::User to OES.Architecture::OES::Model::BaseEntity (Generalization)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Examination::Registration to OES.Architecture::OES::Model::BaseEntity (Generalization)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: OES.Architecture::OES::Model::Examination::StudentRegistration to OES.Architecture::OES::Model::BaseEntity (Generalization)" />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="High" Text="(3) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="High" Text="(7) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-02-17T21:19:18" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
 </Log>

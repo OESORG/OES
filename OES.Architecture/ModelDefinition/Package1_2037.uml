@@ -5831,5 +5831,141 @@
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3f7cbbf9-db3a-4421-8d0b-430f0c321b40"
+        name="Registration"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="d58ad543-33e0-4d2b-8ac2-4446203ce133"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FWork%2FPrivate%2FOES%2FOES%2FOES.Model%2Fbin%2FDebug%2FOES.Model.dll Namespace%3DOES.Model.Examination Type%3DRegistration"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c70145fa-b261-48d5-a1e8-431a1585d479"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5970c86c-f986-4df8-85d6-200df57e0de9">
+                <propertyInstance
+                  Id="23586d72-e7c1-4d7d-962e-1da40fbcebb3"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2491e2b8-e8d4-471f-9908-31434dd5b272">
+                <propertyInstance
+                  Id="2ebe82f1-2f69-4f5a-92d2-e60cbb901f0a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="76afb702-a95a-4246-96a1-2c9bd2cc2dc8">
+                <propertyInstance
+                  Id="02ae50e2-3357-439c-a2aa-214e24f3ea43"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d4df8315-2bd5-4e4f-b2e9-e2d1547b66ca">
+                <propertyInstance
+                  Id="50eb23da-97b9-44b0-98d4-da708792751c"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b15a29a2-eec2-4a35-a8c4-3ab07a2aabf0">
+                <propertyInstance
+                  Id="14201b5e-ef48-483c-9f50-b455490afe5a"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="abfb1846-698c-4df7-bb5f-9b37c0d05f2c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="08fca953-aac0-4041-a92d-780cc7c3d11f"
+              LastKnownName="BaseEntity"
+              LastKnownLocation="Package1_1905.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="223298d3-2398-4c19-85e9-7f59994a5781"
+        name="StudentRegistration"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="bd2835dc-4930-48cf-9113-25ef88ce6161"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FWork%2FPrivate%2FOES%2FOES%2FOES.Model%2Fbin%2FDebug%2FOES.Model.dll Namespace%3DOES.Model.Examination Type%3DStudentRegistration"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ec1bfb88-9289-44cb-9187-5b6a2794a25d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="56f3c210-9068-44c1-b0a1-181c50f607ce">
+                <propertyInstance
+                  Id="33e297fe-705a-4652-9c8b-e5e2e40c6089"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a116ce7d-a386-4381-89e4-98ea7bbcfb5e">
+                <propertyInstance
+                  Id="8277c751-59b9-49cc-a79c-122bc9d26c83"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="471c4613-fb0c-4309-a918-68b3b43255f7">
+                <propertyInstance
+                  Id="66f65f08-9675-4ac0-b21c-bf0870c7863f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5d947bc9-1c15-4b92-8683-c54a58c2c82b">
+                <propertyInstance
+                  Id="52f71be3-0499-4f62-a4a8-bb1b44a95c27"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e7bcd116-2eac-442b-ba97-951ac0ac07a6">
+                <propertyInstance
+                  Id="6e8eadc6-b541-46b4-89e0-810889718ab7"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="84467070-a5d9-4351-a0ca-c1772c480ad5"
+            isSubstitutable="false">
+            <classMoniker
+              Id="08fca953-aac0-4041-a92d-780cc7c3d11f"
+              LastKnownName="BaseEntity"
+              LastKnownLocation="Package1_1905.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

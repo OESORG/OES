@@ -831,7 +831,7 @@
         <referencesInternal>
           <reference
             Id="deff2a14-f820-4128-87da-7e68656478c3"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FPrivate%2FPOC%2FOnlineExaminationSystem%2FOES.Model%2Fbin%2FDebug%2FOES.Model.dll Namespace%3DOES.Model Type%3DBaseEntity"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FWork%2FPrivate%2FOES%2FOES%2FOES.Model%2Fbin%2FDebug%2FOES.Model.dll Namespace%3DOES.Model Type%3DBaseEntity"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>

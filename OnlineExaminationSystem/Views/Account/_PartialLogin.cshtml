@@ -7,7 +7,7 @@
     @if (Model.IsLogedIn)
     {
         <li><p class="navbar-text">Welcom @Model.UserName</p></li>
-        <li>@Html.ActionLink("Log out", "Logoff")</li>
+        <li><a href="/Account/Logoff">logout</a></li>
     }
     else
     {

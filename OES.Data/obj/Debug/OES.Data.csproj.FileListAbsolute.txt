@@ -10,3 +10,15 @@ D:\Private\POC\OnlineExaminationSystem\OES.Data\obj\Debug\OES.Data.dll
 D:\Private\POC\OnlineExaminationSystem\OES.Data\obj\Debug\OES.Data.pdb
 D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Model.dll
 D:\Private\POC\OnlineExaminationSystem\OES.Data\bin\Debug\OES.Model.pdb
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\OES.Data.dll.config
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\OES.Data.dll
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\OES.Data.pdb
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\EntityFramework.dll
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\OES.Model.dll
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\OES.Model.pdb
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\EntityFramework.xml
+D:\Work\Private\OES\OES\OES.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Private\OES\OES\OES.Data\obj\Debug\OES.Data.csprojResolveAssemblyReference.cache
+D:\Work\Private\OES\OES\OES.Data\obj\Debug\OES.Data.dll
+D:\Work\Private\OES\OES\OES.Data\obj\Debug\OES.Data.pdb

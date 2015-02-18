@@ -13,18 +13,21 @@ namespace OES.Model.Examination
     {
         public Registration()
         {
-            CourseStudentId = GenerateKey();
+            RegistrationId = GenerateKey();
         }
         [Key]
-        public string CourseStudentId { get; set; }
+        public string RegistrationId { get; set; }
 
+        [Display(Name = "Course")]
         [ForeignKey("CourseId")]
         public Course Course { get; set; }
 
-
+        [Display(Name = "Instructor")]
         [ForeignKey("InstructorId")]
         public Instructor Instructor { get; set; }
 
+
+        [Display(Name = "Semester")]
         [ForeignKey("SemesterId")]
         public Semester Semester { get; set; }
 

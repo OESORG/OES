@@ -1,0 +1,57 @@
+﻿@model OnlineExaminationSystem.Areas.Administrator.Models.StudentsRegistration
+@{
+    ViewBag.Title = "Students";
+}
+<h2>Student Registration</h2>
+<div class="form-horizontal">
+
+    <hr />
+    <div class="form-group">
+        <label class="control-label col-md-2">Semester</label>
+        <div class="control-label col-md-2">
+            @Model.Registration.Semester.SemesterTitle
+        </div>
+        <label class="control-label col-md-2">Course</label>
+        <div class="control-label col-md-2">
+            @Model.Registration.Course.Title
+        </div>
+        <label class="control-label col-md-2">Instructor</label>
+        <div class="control-label col-md-2">
+            @Model.Registration.Instructor.Name
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Students</h4>
+            @foreach (var student in Model.Students)
+            {
+                <div class="row">
+
+                    <div class="col-md-4">
+                        @student.Name
+                    </div>
+                    <div class="col-md-2">
+                        @Html.ActionLink("Add", "AddStudent", new { id = Model.Registration.RegistrationId, studentId = student.UserId })
+                </div>
+            </div>
+            }
+        </div>
+        <div class="col-md-6">
+            <h4>Registered Students</h4>
+            @foreach (var student in Model.Registration.Students.Select(s => s.Student).ToList())
+            {
+                <div class="row">
+
+                    <div class="col-md-4">
+                        @student.Name
+                    </div>
+                    <div class="col-md-2">
+                        @Html.ActionLink("Remove", "RemoveStudent", new { id = Model.Registration.RegistrationId, studentId = student.UserId })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
