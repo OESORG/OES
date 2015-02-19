@@ -3,14 +3,20 @@
     Layout = null;
 }
 
-<ul class="nav navbar-nav navbar-right">
+<div style="color: white;
+padding: 0px 50px 5px 50px;
+float: right;
+font-size: 16px;">
     @if (Model.IsLogedIn)
     {
-        <li><p class="navbar-text">Welcom @Model.UserName</p></li>
-        <li><a href="/Account/Logoff">logout</a></li>
+        <p style="display:inline-block;"> Welcom @Model.UserName, Last access : 30 May 2014 &nbsp;</p>
+        <a style="display:inline-block;" href="/Account/Logoff" class="btn btn-danger square-btn-adjust">Logout</a>
+
+
     }
     else
     {
-        <li><a href="/Account/Login">Login</a></li>
+        <a href="/Account/Login" class="btn btn-danger square-btn-adjust">Login</a>
+
     }
-</ul>
+</div>

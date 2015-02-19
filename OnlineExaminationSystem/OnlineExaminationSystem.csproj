@@ -176,6 +176,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -211,9 +213,23 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+    <Content Include="font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\1.png" />
+    <Content Include="img\2.png" />
+    <Content Include="img\3.png" />
+    <Content Include="img\4.png" />
+    <Content Include="img\find_user.png" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Content\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Scripts\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\dataTables\jquery.dataTables.js" />
+    <Content Include="Content\morris\morris-0.4.3.min.css" />
+    <Content Include="Scripts\jquery.metisMenu.js" />
+    <Content Include="Scripts\morris\morris.js" />
+    <Content Include="Scripts\morris\raphael-2.1.0.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administrator\Views\web.config" />
@@ -234,6 +250,11 @@
     <Content Include="Areas\InstructorArea\Views\Exams\Details.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Edit.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Index.cshtml" />
+    <Content Include="font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfontba72.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

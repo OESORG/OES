@@ -8,6 +8,8 @@ namespace OnlineExaminationSystem
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            #region Scripts
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -29,6 +31,25 @@ namespace OnlineExaminationSystem
             bundles.Add(new ScriptBundle("~/bundles/controls").Include(
                        "~/Scripts/controls.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/metisMenu").Include(
+                       "~/Scripts/jquery.metisMenu.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                       "~/Scripts/custom.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/dataTables").Include(
+                "~/Scripts/dataTables/jquery.dataTables.js").Include(
+                "~/Scripts/dataTables/dataTables.bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/raphael").Include(
+                "~/Scripts/morris/raphael-2.1.0.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/morris").Include(
+                "~/Scripts/morris/morris.js"));
+
+            #endregion
+
+            #region CSS
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
@@ -47,9 +68,26 @@ namespace OnlineExaminationSystem
               "~/Content/themes/base/progressbar.css",
               "~/Content/themes/base/theme.css"));
 
+
+            bundles.Add(new StyleBundle("~/Content/custom").Include(
+                     "~/Content/custom.css"));
+
+            bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
+                     "~/Content/font-awesome.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/dataTables").Include(
+                     "~/Content/dataTables/dataTables.bootstrap.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/morris").Include(
+                     "~/Content/morris/morris-0.4.3.min.css"));
+
+            #endregion
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
