@@ -31,8 +31,22 @@ namespace OnlineExaminationSystem
             bundles.Add(new ScriptBundle("~/bundles/controls").Include(
                        "~/Scripts/controls.js"));
 
+
+            bundles.Add(new ScriptBundle("~/bundles/LearnCenter").Include(
+                       "~/Scripts/easing.js",
+                       "~/Scripts/move-top.js",
+                       "~/Scripts/responsive-nav.js",
+                       "~/Scripts/jquery.wmuSlider.js"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/metisMenu").Include(
                        "~/Scripts/jquery.metisMenu.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery/controls").Include(
+                       "~/Scripts/jquery.metisMenu.js",
+                       "~/Scripts/jquery.mousewheel.js",
+                       "~/Scripts/jquery.contentcarousel.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                        "~/Scripts/custom.js"));
@@ -71,6 +85,10 @@ namespace OnlineExaminationSystem
 
             bundles.Add(new StyleBundle("~/Content/custom").Include(
                      "~/Content/custom.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/LearnCenter").Include(
+                     "~/Content/LearnCenter.css"));
 
             bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
                      "~/Content/font-awesome.css"));
