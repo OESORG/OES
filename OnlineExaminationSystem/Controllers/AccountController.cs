@@ -52,11 +52,15 @@ namespace OnlineExaminationSystem.Controllers
                         }
                         else
                         {
-                            if (((UserRole)user.Role) == UserRole.Admin)
+                            switch ((UserRole)user.Role)
                             {
-                                return RedirectToAction("Index", "Admins");
+                                case UserRole.Admin:
+                                    return Redirect("~/Admin");
+
+                                case UserRole.Instructor:
+                                    return Redirect("~/Instructor");
                             }
-                            return RedirectToAction("Index", "Home");
+                            return Redirect("~/");
                         }
                     }
                     else
@@ -75,7 +79,7 @@ namespace OnlineExaminationSystem.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return Redirect("~/");
         }
 
         public ActionResult _PartialLogin()

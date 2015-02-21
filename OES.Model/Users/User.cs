@@ -37,6 +37,13 @@ namespace OES.Model.Users
         [Display(Name="Id")]
         public int Code { get; set; }
 
+
+        [Required]
+        public string ProfileId { get; set; }
+
+        [ForeignKey("ProfileId")]
+        public Profile Profile { get; set; }
+
     }
 
     public enum UserRole

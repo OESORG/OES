@@ -17,7 +17,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea
             context.MapRoute(
                 "InstructorArea_default",
                 "Instructor/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller="Course", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -225,6 +225,7 @@
     <Content Include="images\arw.png" />
     <Content Include="images\arws.png" />
     <Content Include="images\banner.jpg" />
+    <Content Include="images\BG_banner_Administration.png" />
     <Content Include="images\contact-sprit.png" />
     <Content Include="images\education.jpg" />
     <Content Include="images\footer-sprit.png" />
