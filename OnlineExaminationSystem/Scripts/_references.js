@@ -21,3 +21,4 @@
 /// <reference path="responsive-nav.js" />
 /// <reference path="jquery.wmuslider.js" />
 /// <reference path="easing.js" />
+/// <reference path="jquery.mixitup.min.js" />

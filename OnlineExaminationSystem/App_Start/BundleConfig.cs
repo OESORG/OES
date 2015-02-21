@@ -46,6 +46,7 @@ namespace OnlineExaminationSystem
             bundles.Add(new ScriptBundle("~/bundles/jquery/controls").Include(
                        "~/Scripts/jquery.metisMenu.js",
                        "~/Scripts/jquery.mousewheel.js",
+                       "~/Scripts/jquery.mixitup.min.js",
                        "~/Scripts/jquery.contentcarousel.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(

@@ -257,6 +257,7 @@
     <Content Include="Scripts\easing.js" />
     <Content Include="Scripts\jquery.contentcarousel.js" />
     <Content Include="Scripts\jquery.metisMenu.js" />
+    <Content Include="Scripts\jquery.mixitup.min.js" />
     <Content Include="Scripts\jquery.mousewheel.js" />
     <Content Include="Scripts\jquery.wmuSlider.js" />
     <Content Include="Scripts\morris\morris.js" />
@@ -349,6 +350,8 @@
     <Content Include="Areas\Administrator\Views\Admins\Index.cshtml" />
     <Content Include="Views\Account\_PartialLogin.cshtml" />
     <Content Include="Areas\Administrator\Views\Admins\_AdminOptions.cshtml" />
+    <Content Include="Views\Home\Courses.cshtml" />
+    <Content Include="Views\Home\Administration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

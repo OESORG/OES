@@ -26,5 +26,15 @@ namespace OnlineExaminationSystem.Controllers
 
             return View();
         }
+
+        public ActionResult Courses()
+        {
+            return View();
+        }
+
+        public ActionResult Administration()
+        {
+            return View();
+        }
     }
 }
