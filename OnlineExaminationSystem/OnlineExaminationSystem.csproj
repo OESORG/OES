@@ -154,6 +154,7 @@
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Administrator\Models\StudentsRegistration.cs" />
+    <Compile Include="Areas\InstructorArea\Controllers\ChapterController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\CourseController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\ExamsController.cs" />
     <Compile Include="Areas\InstructorArea\InstructorAreaAreaRegistration.cs" />
@@ -288,6 +289,11 @@
     <Content Include="font-awesome\fonts\fontawesome-webfontba72.woff" />
     <Content Include="font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Areas\InstructorArea\Views\Chapter\Create.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapter\Delete.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapter\Details.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapter\Edit.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapter\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
