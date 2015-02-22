@@ -34,3 +34,15 @@ D:\Private\POC\OnlineExaminationSystem\OES\OES.Data\bin\Debug\EntityFramework.Sq
 D:\Private\POC\OnlineExaminationSystem\OES\OES.Data\obj\Debug\OES.Data.csprojResolveAssemblyReference.cache
 D:\Private\POC\OnlineExaminationSystem\OES\OES.Data\obj\Debug\OES.Data.dll
 D:\Private\POC\OnlineExaminationSystem\OES\OES.Data\obj\Debug\OES.Data.pdb
+D:\Final Gproject\OES\OES.Data\bin\Debug\OES.Data.dll.config
+D:\Final Gproject\OES\OES.Data\bin\Debug\OES.Data.dll
+D:\Final Gproject\OES\OES.Data\bin\Debug\OES.Data.pdb
+D:\Final Gproject\OES\OES.Data\bin\Debug\EntityFramework.dll
+D:\Final Gproject\OES\OES.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Final Gproject\OES\OES.Data\bin\Debug\OES.Model.dll
+D:\Final Gproject\OES\OES.Data\bin\Debug\OES.Model.pdb
+D:\Final Gproject\OES\OES.Data\bin\Debug\EntityFramework.xml
+D:\Final Gproject\OES\OES.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Final Gproject\OES\OES.Data\obj\Debug\OES.Data.csprojResolveAssemblyReference.cache
+D:\Final Gproject\OES\OES.Data\obj\Debug\OES.Data.dll
+D:\Final Gproject\OES\OES.Data\obj\Debug\OES.Data.pdb

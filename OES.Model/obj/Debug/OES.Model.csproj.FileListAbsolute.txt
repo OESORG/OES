@@ -14,3 +14,9 @@ D:\Private\POC\OnlineExaminationSystem\OES\OES.Model\bin\Debug\OES.Model.pdb
 D:\Private\POC\OnlineExaminationSystem\OES\OES.Model\obj\Debug\OES.Model.dll
 D:\Private\POC\OnlineExaminationSystem\OES\OES.Model\obj\Debug\OES.Model.pdb
 D:\Work\Private\OES\OES\OES.Model\obj\Debug\OES.Model.csprojResolveAssemblyReference.cache
+D:\Final Gproject\OES\OES.Model\bin\Debug\OES.Model.dll.config
+D:\Final Gproject\OES\OES.Model\bin\Debug\OES.Model.dll
+D:\Final Gproject\OES\OES.Model\bin\Debug\OES.Model.pdb
+D:\Final Gproject\OES\OES.Model\obj\Debug\OES.Model.csprojResolveAssemblyReference.cache
+D:\Final Gproject\OES\OES.Model\obj\Debug\OES.Model.dll
+D:\Final Gproject\OES\OES.Model\obj\Debug\OES.Model.pdb
