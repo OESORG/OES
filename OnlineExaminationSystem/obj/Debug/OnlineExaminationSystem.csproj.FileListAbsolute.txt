@@ -83,12 +83,6 @@ D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Antlr3.Runtime.pdb
 D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Newtonsoft.Json.xml
 D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.AspNet.Identity.Core.xml
 D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.xml
-D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.Facebook.xml
-D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.Google.xml
-D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.Twitter.xml
-D:\Work\Private\OES\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Work\Private\OES\OES\OnlineExaminationSystem\obj\Debug\OnlineExaminationSystem.csprojResolveAssemblyReference.cache
 D:\Work\Private\OES\OES\OnlineExaminationSystem\obj\Debug\OnlineExaminationSystem.dll
 D:\Work\Private\OES\OES\OnlineExaminationSystem\obj\Debug\OnlineExaminationSystem.pdb
