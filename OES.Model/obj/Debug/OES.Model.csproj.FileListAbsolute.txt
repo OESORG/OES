@@ -20,3 +20,9 @@ F:\OnlineExaminationSystem\Final Gproject\OES\OES.Model\bin\Debug\OES.Model.pdb
 F:\OnlineExaminationSystem\Final Gproject\OES\OES.Model\obj\Debug\OES.Model.csprojResolveAssemblyReference.cache
 F:\OnlineExaminationSystem\Final Gproject\OES\OES.Model\obj\Debug\OES.Model.dll
 F:\OnlineExaminationSystem\Final Gproject\OES\OES.Model\obj\Debug\OES.Model.pdb
+E:\CS\project\Final project3\OES\OES.Model\bin\Debug\OES.Model.dll.config
+E:\CS\project\Final project3\OES\OES.Model\bin\Debug\OES.Model.dll
+E:\CS\project\Final project3\OES\OES.Model\bin\Debug\OES.Model.pdb
+E:\CS\project\Final project3\OES\OES.Model\obj\Debug\OES.Model.csprojResolveAssemblyReference.cache
+E:\CS\project\Final project3\OES\OES.Model\obj\Debug\OES.Model.dll
+E:\CS\project\Final project3\OES\OES.Model\obj\Debug\OES.Model.pdb
