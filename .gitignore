@@ -1,7 +1,11 @@
 *.dll
 *.pdb
-OnlineExaminationSystem/obj/Debug/
+OnlineExaminationSystem/obj/
 *.*
-OES.Data/obj/Debug/
+OnlineExaminationSystem/bin/
+*.*
+OES.Data/obj/
+*.*
+OES.Data/bin/
 *.*
 *.cache
