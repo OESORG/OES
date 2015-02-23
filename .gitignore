@@ -1,11 +1,3 @@
 *.dll
-*.pdb
-OnlineExaminationSystem/obj/
-*.*
-OnlineExaminationSystem/bin/
-*.*
-OES.Data/obj/
-*.*
-OES.Data/bin/
-*.*
 *.cache
+*.pdb

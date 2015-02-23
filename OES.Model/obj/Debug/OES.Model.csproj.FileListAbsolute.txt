@@ -26,3 +26,4 @@ E:\CS\project\Final project3\OES\OES.Model\bin\Debug\OES.Model.pdb
 E:\CS\project\Final project3\OES\OES.Model\obj\Debug\OES.Model.csprojResolveAssemblyReference.cache
 E:\CS\project\Final project3\OES\OES.Model\obj\Debug\OES.Model.dll
 E:\CS\project\Final project3\OES\OES.Model\obj\Debug\OES.Model.pdb
+D:\Private\POC\OnlineExaminationSystem\OES\OES.Model\obj\Debug\OES.Model.csprojResolveAssemblyReference.cache

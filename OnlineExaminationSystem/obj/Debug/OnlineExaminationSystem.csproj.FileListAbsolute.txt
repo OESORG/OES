@@ -124,12 +124,6 @@ D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Antlr3.Ru
 D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Newtonsoft.Json.xml
 D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.AspNet.Identity.Core.xml
 D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.xml
-D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.Facebook.xml
-D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.Google.xml
-D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.Twitter.xml
-D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\obj\Debug\OnlineExaminationSystem.csprojResolveAssemblyReference.cache
 D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\obj\Debug\OnlineExaminationSystem.dll
 D:\Private\POC\OnlineExaminationSystem\OES\OnlineExaminationSystem\obj\Debug\OnlineExaminationSystem.pdb
