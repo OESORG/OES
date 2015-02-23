@@ -43,8 +43,5 @@ namespace OES.Model.Examination
 
 
         public List<StudentRegistration> Students { get; set; }
-
-
-        public List<Chapter> Chapters { get; set; }
     }
 }

@@ -38,8 +38,11 @@ namespace OES.Model.Users
         public int Code { get; set; }
 
 
-        [StringLength(1024)]
-        public string Avatar { get; set; }
+        [Required]
+        public string ProfileId { get; set; }
+
+        [ForeignKey("ProfileId")]
+        public Profile Profile { get; set; }
 
     }
 
