@@ -18,10 +18,10 @@ namespace OES.Model.Examination
         public string Title { get; set; }
 
         [Required]
-        public string CourseId { get; set; }
+        public string RegistrationId { get; set; }
 
-        [ForeignKey("CourseId")]
-        public Course Course { get; set; }
+        [ForeignKey("RegistrationId")]
+        public Registration Registration  { get; set; }
 
         public List<Question> Questions { get; set; }
 

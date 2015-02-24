@@ -155,7 +155,7 @@
     <Compile Include="Areas\Administrator\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Administrator\Models\StudentsRegistration.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\CourseController.cs" />
-    <Compile Include="Areas\InstructorArea\Controllers\ExamsController.cs" />
+    <Compile Include="Areas\InstructorArea\Controllers\InstructorBaseController.cs" />
     <Compile Include="Areas\InstructorArea\InstructorAreaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
@@ -278,11 +278,6 @@
     <Content Include="Areas\InstructorArea\Views\_ViewStart.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Course\Index.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Exams\Create.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Exams\Delete.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Exams\Details.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Exams\Edit.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Exams\Index.cshtml" />
     <Content Include="font-awesome\fonts\fontawesome-webfontba72.eot" />
     <Content Include="font-awesome\fonts\fontawesome-webfontba72.ttf" />
     <Content Include="font-awesome\fonts\fontawesome-webfontba72.woff" />

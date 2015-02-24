@@ -25,7 +25,6 @@ namespace OES.Model.Examination
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         
-        public List<Chapter> Chapters { get; set; }
 
         public List<Registration> Registrations { get; set; }
     }

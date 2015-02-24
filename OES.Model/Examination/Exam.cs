@@ -22,9 +22,9 @@ namespace OES.Model.Examination
 
         public List<ExamDifficulty> ExamDifficulties { get; set; }
 
-        [ForeignKey("CourseStudentId")]
-        public Registration Course { get; set; }
-        public string CourseStudentId { get; set; }
+        [ForeignKey("RegistrationId")]
+        public Registration Registration { get; set; }
+        public string RegistrationId { get; set; }
 
     }
 }
