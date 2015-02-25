@@ -41,6 +41,8 @@ namespace OES.Model.Users
         [StringLength(1024)]
         public string Avatar { get; set; }
 
+        public DateTime? LastVisit { get; set; }
+
     }
 
     public enum UserRole

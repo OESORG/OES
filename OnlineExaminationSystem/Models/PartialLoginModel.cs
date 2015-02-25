@@ -9,5 +9,6 @@ namespace OnlineExaminationSystem.Models
     {
         public bool IsLogedIn { get; set; }
         public string UserName { get; set; }
+        public DateTime? LastVisit { get; set; }
     }
 }

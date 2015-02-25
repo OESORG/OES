@@ -63,6 +63,9 @@ namespace OnlineExaminationSystem.Controllers
                     if (userValid)
                     {
 
+                        user.LastVisit = DateTime.Now;
+                        db.SaveChanges();
+                        db.Dispose();
                         FormsAuthentication.SetAuthCookie(username, model.RememberMe);
                         if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                             && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))

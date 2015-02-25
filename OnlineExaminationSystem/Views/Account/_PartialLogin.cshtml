@@ -9,14 +9,26 @@ float: right;
 font-size: 16px;">
     @if (Model.IsLogedIn)
     {
-        <p style="display:inline-block;"> Welcom @Model.UserName, Last access : 30 May 2014 &nbsp;</p>
+
+        if (Model.LastVisit.HasValue)
+            {
+            <p style="display:inline-block;">
+                @string.Format("Welcome {0}, Last Access @ {1:dd} {1:MMMM} {1:yyyy}", Model.UserName, Model.LastVisit.Value)
+                &nbsp;
+            </p>
+            }else
+            {
+            <p style="display:inline-block;">
+                Welcome @Model.UserName &nbsp;
+            </p>
+                }
         <a style="display:inline-block;" href="/Account/Logoff" class="btn btn-danger square-btn-adjust">Logout</a>
 
 
-    }
-    else
-    {
+                }
+                else
+                {
         <a href="/Account/Login" class="btn btn-danger square-btn-adjust">Login</a>
 
-    }
+                }
 </div>

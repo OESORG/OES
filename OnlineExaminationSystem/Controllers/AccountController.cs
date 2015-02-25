@@ -92,6 +92,7 @@ namespace OnlineExaminationSystem.Controllers
             {
                 model.IsLogedIn = true;
                 model.UserName = user.Name;
+                model.LastVisit = user.LastVisit;
             }
             return View(model);
         }
