@@ -15,8 +15,14 @@ namespace OES.Model.Examination
         }
         public string ChapterId { get; set; }
 
+        [Required]
+        public int Number {get; set;}
+
+        [Required]
         public string Title { get; set; }
+
         [DataType(DataType.MultilineText)]
+        [Required]
         public string Overview { get; set; }
 
         [Required]

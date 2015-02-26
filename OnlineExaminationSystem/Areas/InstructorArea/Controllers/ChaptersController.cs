@@ -58,7 +58,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Overview,RegistrationId")] Chapter chapter)
+        public ActionResult Create([Bind(Include = "Number,Title,Overview,RegistrationId")] Chapter chapter)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,6 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.RegistrationId = new SelectList(db.Registrations, "RegistrationId", "SemesterId", chapter.RegistrationId);
             return View(chapter);
         }
 
@@ -91,15 +90,14 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ChapterId,Title,RegistrationId")] Chapter chapter)
+        public ActionResult Edit([Bind(Include = "ChapterId,Number,Title,Overview,RegistrationId")] Chapter chapter)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(chapter).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = chapter.RegistrationId });
             }
-            ViewBag.RegistrationId = new SelectList(db.Registrations, "RegistrationId", "SemesterId", chapter.RegistrationId);
             return View(chapter);
         }
 
