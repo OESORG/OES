@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Result.cs" />
     <Compile Include="Instructor\ChapterModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using OES.Data;
 using OES.Model.Examination;
 using OnlineExaminationSystem.Areas.InstructorArea.Models;
+using OES.Modules.Instructor;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
@@ -62,9 +63,18 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Chapters.Add(chapter);
-                db.SaveChanges();
-                return RedirectToAction("Index", new { id = chapter.RegistrationId });
+                ChapterModule module = new ChapterModule();
+                var result = module.Add(chapter);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index", new { id = chapter.RegistrationId });
+                }
+                else {
+                    foreach (var err in result.Errors)
+                    {
+                        ModelState.AddModelError(err.Key, err.Message);
+                    }
+                }
             }
 
             return View(chapter);

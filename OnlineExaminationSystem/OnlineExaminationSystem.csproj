@@ -181,6 +181,9 @@
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\sort_asc.png" />
+    <Content Include="Content\images\sort_both.png" />
+    <Content Include="Content\images\sort_desc.png" />
     <Content Include="Content\LearnCenter.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -376,6 +379,10 @@
     <ProjectReference Include="..\OES.Model\OES.Model.csproj">
       <Project>{ce02d7aa-62b0-4f59-ac00-b63b9dd4c68c}</Project>
       <Name>OES.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OES.Modules\OES.Modules.csproj">
+      <Project>{7271a4a8-c822-457a-9ea2-3e675ea888ec}</Project>
+      <Name>OES.Modules</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
