@@ -284,7 +284,6 @@
     <Content Include="Areas\InstructorArea\Views\Course\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
     <Content Include="Areas\InstructorArea\Views\Chapters\Create.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Chapters\Delete.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Chapters\Details.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Chapters\Edit.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Chapters\Index.cshtml" />

@@ -106,28 +106,13 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         // GET: InstructorArea/Chapters/Delete/5
         public ActionResult Delete(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Chapter chapter = db.Chapters.Find(id);
-            if (chapter == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chapter);
-        }
-
-        // POST: InstructorArea/Chapters/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            Chapter chapter = db.Chapters.Find(id);
+            var regId = chapter.RegistrationId;
             db.Chapters.Remove(chapter);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = regId });
         }
+
 
         protected override void Dispose(bool disposing)
         {

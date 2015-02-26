@@ -42,7 +42,7 @@
                                         <td>
                                             @Html.ActionLink("Edit", "Edit", new { id = item.ChapterId }) |
                                             @Html.ActionLink("Details", "Details", new { id = item.ChapterId }) |
-                                            <a href="#" class="delete-button">Delete</a>
+                                            <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = item.ChapterId })">Delete</a>
                                         </td>
                                     </tr>
                                 }
