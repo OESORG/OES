@@ -13,6 +13,11 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
     public class CourseController : InstructorBaseController
     {
         private OESData db = new OESData();
+
+        public CourseController()
+        {
+            ViewBag.Page = "course";
+        }
         // GET: InstructorArea/Course
         public ActionResult Index()
         {

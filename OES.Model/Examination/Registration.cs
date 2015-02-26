@@ -41,7 +41,6 @@ namespace OES.Model.Examination
         [Required]
         public string CourseId { get; set; }
 
-
         public List<StudentRegistration> Students { get; set; }
 
         public List<Chapter> Chapters { get; set; }

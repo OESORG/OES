@@ -38,6 +38,7 @@
                                 @Html.DisplayFor(modelItem => item.Course.Title)
                             </td>
                             <td>
+                                @Html.ActionLink("Chapters", "Index", "Chapters", routeValues: new { id = item.RegistrationId }, htmlAttributes: null) |
                                 @Html.ActionLink("Students", "Students", new { id = item.RegistrationId }) |
                                 @Html.ActionLink("Exams", "Index", "Exams", routeValues: new { id = item.RegistrationId }, htmlAttributes: null)
                             </td>

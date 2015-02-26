@@ -32,6 +32,10 @@ namespace OnlineExaminationSystem
                        "~/Scripts/controls.js"));
 
 
+            bundles.Add(new ScriptBundle("~/bundles/component").IncludeDirectory(
+                       "~/Scripts/component/", "*.js", true));
+
+
             bundles.Add(new ScriptBundle("~/bundles/LearnCenter").Include(
                        "~/Scripts/easing.js",
                        "~/Scripts/move-top.js",

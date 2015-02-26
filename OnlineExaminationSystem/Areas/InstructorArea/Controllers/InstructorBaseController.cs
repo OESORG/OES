@@ -28,7 +28,10 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
             get
             {
                 OESData db = new OESData();
-                var registerations = db.Registrations.Include(r => r.Semester).Include(r => r.Course).Where(r => r.InstructorId.Equals(Instructor.UserId, StringComparison.OrdinalIgnoreCase)).ToList();
+                var registerations = db.Registrations.Include(r => r.Semester)
+                    .Include(r => r.Course)
+                    .Include(r => r.Chapters)
+                    .Where(r => r.InstructorId.Equals(Instructor.UserId, StringComparison.OrdinalIgnoreCase)).ToList();
                 db.Dispose();
                 return registerations;
             }

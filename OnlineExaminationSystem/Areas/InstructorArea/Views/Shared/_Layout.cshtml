@@ -39,19 +39,19 @@
 
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-book fa-2x"></i> Courses </a>
+                        <a class="@((ViewBag.Page == "course") ? "active-menu" : "")" href="/instructor"><i class="fa fa-book fa-2x"></i> Courses </a>
                     </li>
                     <li>
-                        <a href="ui.html"><i class="fa fa-pencil fa-2x"></i> Chapters</a>
+                        <a class="@((ViewBag.Page == "chapters") ? "active-menu" : "")" href="/instructor/chapters"><i class="fa fa-pencil fa-2x"></i> Chapters</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-question-circle fa-2x"></i> Questions</a>
+                        <a class="@((ViewBag.Page == "questions") ? "active-menu" : "")" href="/instructor/"><i class="fa fa-question-circle fa-2x"></i> Questions</a>
                     </li>
                     <li>
-                        <a href="chart.html"><i class="fa fa-print fa-2x"></i>Exams</a>
+                        <a class="@((ViewBag.Page == "exams") ? "active-menu" : "")" href="/instructor/"><i class="fa fa-print fa-2x"></i>Exams</a>
                     </li>
                     <li>
-                        <a href="table.html"><i class="fa fa-users fa-2x"></i> Students</a>
+                        <a class="@((ViewBag.Page == "students") ? "active-menu" : "")" href="/instructor"><i class="fa fa-users fa-2x"></i> Students</a>
                     </li>
 
 
@@ -79,6 +79,7 @@
     @Scripts.Render("~/bundles/raphael")
     @Scripts.Render("~/bundles/morris")
     @Scripts.Render("~/bundles/custom")
+    @Scripts.Render("~/bundles/component")
     @Scripts.Render("~/bundles/controls")
     @RenderSection("scripts", required: false)
 

@@ -154,9 +154,11 @@
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Administrator\Models\StudentsRegistration.cs" />
+    <Compile Include="Areas\InstructorArea\Controllers\ChaptersController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\CourseController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\InstructorBaseController.cs" />
     <Compile Include="Areas\InstructorArea\InstructorAreaAreaRegistration.cs" />
+    <Compile Include="Areas\InstructorArea\Models\ChapterViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\CoursesController.cs" />
@@ -178,6 +180,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\LearnCenter.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -214,7 +217,7 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
-    <Content Include="font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -250,6 +253,7 @@
     <Content Include="img\3.png" />
     <Content Include="img\4.png" />
     <Content Include="img\find_user.png" />
+    <Content Include="Scripts\component\deleteButton.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Content\dataTables\dataTables.bootstrap.css" />
     <Content Include="Scripts\dataTables\dataTables.bootstrap.js" />
@@ -278,11 +282,17 @@
     <Content Include="Areas\InstructorArea\Views\_ViewStart.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Course\Index.cshtml" />
-    <Content Include="font-awesome\fonts\fontawesome-webfontba72.eot" />
-    <Content Include="font-awesome\fonts\fontawesome-webfontba72.ttf" />
-    <Content Include="font-awesome\fonts\fontawesome-webfontba72.woff" />
-    <Content Include="font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Areas\InstructorArea\Views\Chapters\Create.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapters\Delete.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapters\Details.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapters\Edit.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Chapters\Index.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -351,7 +361,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\InstructorArea\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

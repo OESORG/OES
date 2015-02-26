@@ -38,6 +38,8 @@ namespace OES.Data
 
         public System.Data.Entity.DbSet<OES.Model.Examination.Exam> Exams { get; set; }
 
+        public System.Data.Entity.DbSet<OES.Model.Examination.Chapter> Chapters { get; set; }
+
     }
 
     //public class EOSDBInitializer : CreateDatabaseIfNotExists<EOSData>

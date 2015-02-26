@@ -1,0 +1,56 @@
+﻿@model OnlineExaminationSystem.Areas.InstructorArea.Models.ChapterViewModel
+
+@{
+    ViewBag.Title = "Chapters";
+}
+
+<h2>Index</h2>
+
+@if (Model.SelectedRegisteration != null)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@(string.Format("{0} / {1} / Chapters ({2})", Model.SelectedRegisteration.Semester.SemesterTitle, Model.SelectedRegisteration.Course.Title, Model.SelectedRegisteration.Chapters.Count))</h3>
+            @Html.ActionLink("Add Chapter", "Create", new { id = Model.SelectedRegisteration.RegistrationId })
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Overview
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.SelectedRegisteration.Chapters)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Overview)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.ChapterId }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.ChapterId }) |
+                                            <a href="#" class="delete-button">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -22,3 +22,4 @@
 /// <reference path="jquery.wmuslider.js" />
 /// <reference path="easing.js" />
 /// <reference path="jquery.mixitup.min.js" />
+/// <reference path="component/deleteButton.js" />
