@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Core\Result.cs" />
     <Compile Include="Instructor\ChapterModule.cs" />
+    <Compile Include="Instructor\ExamModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

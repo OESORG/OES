@@ -31,6 +31,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
                 var registerations = db.Registrations.Include(r => r.Semester)
                     .Include(r => r.Course)
                     .Include(r => r.Chapters)
+                    .Include(r => r.Chapters.Select(c => c.Questions))
                     .Where(r => r.InstructorId.Equals(Instructor.UserId, StringComparison.OrdinalIgnoreCase)).ToList();
                 db.Dispose();
                 return registerations;

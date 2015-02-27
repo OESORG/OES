@@ -33,6 +33,10 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
             return View(model);
         }
 
+        public ActionResult Select(string id)
+        {
+            return RedirectToAction("Index", new { id = id });
+        }
         // GET: InstructorArea/Chapters/Details/5
         public ActionResult Details(string id)
         {
