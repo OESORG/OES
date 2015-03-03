@@ -8,9 +8,6 @@
 
 @if (Model.SelectedChapter != null)
 {
-    <p>
-        @Html.ActionLink("Create New", "Create", new { id = Model.SelectedChapter.ChapterId })
-    </p>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3>@(string.Format("{0} / {1} / {2} / Questions({3})", Model.SelectedChapter.Registration.Semester.SemesterTitle, Model.SelectedChapter.Registration.Course.Title, Model.SelectedChapter.Title,Model.SelectedChapter.Questions.Count))</h3>
@@ -49,8 +46,8 @@
                                             @Html.DisplayFor(modelItem => item.Difficulty)
                                         </td>
                                         <td>
+                                            @Html.ActionLink("Answers (" + item.Answers.Count + ")", "Index", "Answers", routeValues: new { id = item.QuestionId }, htmlAttributes : null)  |
                                             @Html.ActionLink("Edit", "Edit", new { id = item.QuestionId }) |
-                                            @Html.ActionLink("Details", "Details", new { id = item.QuestionId }) |
                                             <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = item.QuestionId })">Delete</a>
                                         </td>
                                     </tr>

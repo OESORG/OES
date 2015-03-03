@@ -42,6 +42,8 @@ namespace OES.Data
 
         public System.Data.Entity.DbSet<OES.Model.Examination.Question> Questions { get; set; }
 
+        public System.Data.Entity.DbSet<OES.Model.Examination.Answer> Answers { get; set; }
+
     }
 
     //public class EOSDBInitializer : CreateDatabaseIfNotExists<EOSData>

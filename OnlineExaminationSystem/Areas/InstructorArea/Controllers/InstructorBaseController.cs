@@ -8,6 +8,7 @@ using OnlineExaminationSystem.Extensions;
 using OES.Model.Users;
 using OES.Model.Examination;
 using OES.Data;
+using OES.Modules.Instructor;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
@@ -35,6 +36,17 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
                     .Where(r => r.InstructorId.Equals(Instructor.UserId, StringComparison.OrdinalIgnoreCase)).ToList();
                 db.Dispose();
                 return registerations;
+            }
+        }
+
+
+        private ExamModule _ExamModule;
+        public ExamModule ExamModule
+        {
+            get
+            {
+                _ExamModule = _ExamModule ?? new ExamModule();
+                return _ExamModule;
             }
         }
 

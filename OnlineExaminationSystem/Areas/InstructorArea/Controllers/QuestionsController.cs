@@ -66,8 +66,14 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Questions.Add(question);
-                db.SaveChanges();
+                var result = ExamModule.AddQuestion(question);
+                if (!result.Success)
+                {
+                    foreach(var err in result.Errors){
+                        ModelState.AddModelError(err.Key, err.Message);
+                    }
+                    return View(result.ReturnObject);
+                }
                 return RedirectToAction("Index", new { id = question.ChapterId });
             }
 
@@ -114,6 +120,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", new { id = chapterId });
         }
+
 
 
         protected override void Dispose(bool disposing)
