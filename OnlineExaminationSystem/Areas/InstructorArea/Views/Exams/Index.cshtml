@@ -1,0 +1,121 @@
+﻿@model ExamViewModel
+
+@{
+    ViewBag.Title = "Exams";
+}
+
+<h2>Index</h2>
+
+<select class="form-control select-reg" data-url="@Url.Action("Select")">
+    <option> -- Select Course -- </option>
+    @foreach (var reg in Model.Registrations.OrderBy(r => r.Semester.SemesterTitle).OrderBy(r => r.Course.Title))
+    {
+        <option value="@reg.RegistrationId">@reg.Semester.SemesterTitle / @reg.Course.Title</option>
+    }
+
+</select>
+<hr />
+@if (Model.SelectedRegistration != null)
+{
+    <input type="hidden" value="@Model.SelectedRegistration.RegistrationId" id="selectedReg" />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@(string.Format("{0} / {1} / Exams ({2})", Model.SelectedRegistration.Semester.SemesterTitle, Model.SelectedRegistration.Course.Title, Model.SelectedRegistration.Exams.Count))</h3>
+            @Html.ActionLink("Add Exam", "Create", new { id = Model.SelectedRegistration.RegistrationId })
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().StartDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().EndDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfHighQuestion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().HighQuestionScore)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfMediumQuestion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().MediumQuestionScore)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfLowQuestion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().LowQuestionScore)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.SelectedRegistration.Exams)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.StartDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EndDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumberOfHighQuestion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HighQuestionScore)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumberOfMediumQuestion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MediumQuestionScore)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumberOfLowQuestion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LowQuestionScore)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id=item.ExamId }) |
+                                            @Html.ActionLink("Details", "Details", new { id=item.ExamId }) |
+                                            <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = item.ExamId })">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts
+{
+    <script>
+        (function () {
+            var selectedReg = $('#selectedReg').val()
+            if (selectedReg && selectedReg.length > 0)
+            {
+                $('.select-reg').val(selectedReg);
+            }
+            $('.select-reg').change(function () {
+                var $this = $(this);
+                if ($this.val().length > 0) {
+                    window.location = $this.data('url') + "/" + $this.val();
+                }
+            });
+        })();
+    </script>
+}

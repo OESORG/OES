@@ -13,6 +13,7 @@ using OES.Modules.Instructor;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
+    [Authorize(Roles = "Instructor")]
     public class ChaptersController : InstructorBaseController
     {
         private OESData db = new OESData();
@@ -25,7 +26,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         public ActionResult Index(string id = null)
         {
             ChapterViewModel model = new ChapterViewModel();
-            model.Regisatrations = Registrations;
+            model.Registrations = Registrations;
             if (!string.IsNullOrWhiteSpace(id))
             {
                 model.SelectedRegisteration = Registrations.FirstOrDefault(r => r.RegistrationId.Equals(id, StringComparison.OrdinalIgnoreCase));

@@ -157,11 +157,13 @@
     <Compile Include="Areas\InstructorArea\Controllers\AnswersController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\ChaptersController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\CourseController.cs" />
+    <Compile Include="Areas\InstructorArea\Controllers\ExamsController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\InstructorBaseController.cs" />
     <Compile Include="Areas\InstructorArea\Controllers\QuestionsController.cs" />
     <Compile Include="Areas\InstructorArea\InstructorAreaAreaRegistration.cs" />
     <Compile Include="Areas\InstructorArea\Models\AnswerViewModel.cs" />
     <Compile Include="Areas\InstructorArea\Models\ChapterViewModel.cs" />
+    <Compile Include="Areas\InstructorArea\Models\ExamViewModel.cs" />
     <Compile Include="Areas\InstructorArea\Models\QuestionViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
@@ -306,6 +308,10 @@
     <Content Include="Areas\InstructorArea\Views\Answers\Delete.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Answers\Edit.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Answers\Index.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Exams\Create.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Exams\Delete.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Exams\Edit.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Exams\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

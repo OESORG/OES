@@ -6,10 +6,10 @@ using System.Web;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Models
 {
-    public class ChapterViewModel
+    public class ExamViewModel
     {
-        public List<Registration> Registrations { get; set; }
+        public Registration SelectedRegistration { get; set; }
 
-        public Registration SelectedRegisteration { get; set; }
+        public List<Registration> Registrations { get; set; }
     }
 }

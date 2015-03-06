@@ -116,6 +116,14 @@ namespace OES.Modules.Instructor
             return result;
         }
 
+        public Registration GetRegistrationForExams(string registrationId)
+        {
+            OESData db = new OESData();
+            return db.Registrations.Include(r => r.Course)
+                .Include(r=> r.Semester)
+                .Include(r => r.Exams)
+                .FirstOrDefault(r => r.RegistrationId.Equals(registrationId, StringComparison.OrdinalIgnoreCase));
+        }
 
     }
 }

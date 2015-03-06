@@ -12,6 +12,7 @@ using OES.Modules.Instructor;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
+    [Authorize(Roles = "Instructor")]
     public class InstructorBaseController : Controller
     {
         private Instructor _Instructor;

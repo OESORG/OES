@@ -12,6 +12,7 @@ using OnlineExaminationSystem.Areas.InstructorArea.Models;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
+    [Authorize(Roles = "Instructor")]
     public class AnswersController : InstructorBaseController
     {
         private OESData db = new OESData();

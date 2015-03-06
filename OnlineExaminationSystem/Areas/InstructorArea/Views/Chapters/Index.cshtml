@@ -7,9 +7,18 @@
 
 <h2>Chapters</h2>
 
+<select class="form-control select-reg" data-url="@Url.Action("Select")">
+    <option> -- Select Course -- </option>
+    @foreach (var reg in Model.Registrations.OrderBy(r => r.Semester.SemesterTitle).OrderBy(r => r.Course.Title))
+    {
+        <option value="@reg.RegistrationId">@reg.Semester.SemesterTitle / @reg.Course.Title</option>
+    }
+
+</select>
+<hr />
 @if (Model.SelectedRegisteration != null)
 {
-
+    <input type="hidden" value="@Model.SelectedRegisteration.RegistrationId" id="selectedReg" />
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3>@(string.Format("{0} / {1} / Chapters ({2})", Model.SelectedRegisteration.Semester.SemesterTitle, Model.SelectedRegisteration.Course.Title, Model.SelectedRegisteration.Chapters.Count))</h3>
@@ -49,7 +58,7 @@
                                         </td>
                                         <td>
                                             @Html.ActionLink("Edit", "Edit", new { id = item.ChapterId }) |
-                                            @Html.ActionLink("Questions", "Index", "Questions", routeValues: new { id = item.ChapterId }, htmlAttributes:null) |
+                                            @Html.ActionLink("Questions", "Index", "Questions", routeValues: new { id = item.ChapterId }, htmlAttributes: null) |
                                             @Html.ActionLink("Details", "Details", new { id = item.ChapterId }) |
                                             <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = item.ChapterId })">Delete</a>
                                         </td>
@@ -63,19 +72,21 @@
         </div>
     </div>
 }
-else
-{
-    @Html.DropDownList("Registrations", new SelectList(Model.Regisatrations, "RegistrationId", "Course.Title"), "-- Select Course --", htmlAttributes: new { @class = "form-control select-reg", @data_url = Url.Action("Select") })
-}
-
 @section scripts
 {
     <script>
-        $('.select-reg').change(function () {
-            var $this = $(this);
-            if ($this.val().length > 0) {
-                window.location = $this.data('url') + "/" + $this.val();
+        (function () {
+            var selectedReg = $('#selectedReg').val()
+            if (selectedReg && selectedReg.length > 0)
+            {
+                $('.select-reg').val(selectedReg);
             }
-        });
+            $('.select-reg').change(function () {
+                var $this = $(this);
+                if ($this.val().length > 0) {
+                    window.location = $this.data('url') + "/" + $this.val();
+                }
+            });
+        })();
     </script>
 }

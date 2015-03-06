@@ -44,7 +44,6 @@
     <Compile Include="Examination\Chapter.cs" />
     <Compile Include="Examination\Registration.cs" />
     <Compile Include="Examination\Exam.cs" />
-    <Compile Include="Examination\ExamDifficulty.cs" />
     <Compile Include="Examination\Question.cs" />
     <Compile Include="Examination\Semester.cs" />
     <Compile Include="Examination\StudentRegistration.cs" />
