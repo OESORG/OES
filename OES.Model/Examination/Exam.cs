@@ -31,21 +31,21 @@ namespace OES.Model.Examination
 
         [Required]
         [Display(Name="Score of High Question")]
-        public int HighQuestionScore { get; set; }
+        public decimal HighQuestionScore { get; set; }
 
         [Required]
         [Display(Name = "Number of Medium Difficulty Questions")]
         public int NumberOfMediumQuestion { get; set; }
         [Required]
         [Display(Name = "Score of Medium Question")]
-        public int MediumQuestionScore { get; set; }
+        public decimal MediumQuestionScore { get; set; }
 
         [Required]
         [Display(Name = "Number of Low Difficulty Questions")]
         public int NumberOfLowQuestion { get; set; }
         [Required]
         [Display(Name = "Score of Low Question")]
-        public int LowQuestionScore { get; set; }
+        public decimal LowQuestionScore { get; set; }
 
         [ForeignKey("RegistrationId")]
         public Registration Registration { get; set; }

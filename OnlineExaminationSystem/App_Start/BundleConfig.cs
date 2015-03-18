@@ -106,6 +106,10 @@ namespace OnlineExaminationSystem
             bundles.Add(new StyleBundle("~/Content/morris").Include(
                      "~/Content/morris/morris-0.4.3.min.css"));
 
+
+            bundles.Add(new StyleBundle("~/Content/component").IncludeDirectory(
+                     "~/Content/component", "*.css"));
+
             #endregion
 
             // Set EnableOptimizations to false for debugging. For more information,
