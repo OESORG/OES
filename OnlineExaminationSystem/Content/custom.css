@@ -20,7 +20,20 @@ body {
     width: 100%;
     background:#202020;
 }
+ 
+.form-control.input-validation-error{
+    border-color:red;
+}
 
+
+
+.panel.minimize .panel-body {
+    display:none;
+}
+.panel.tree .panel-heading{
+    cursor:pointer;
+    background-color: #555;
+}
 #page-wrapper {
     padding: 15px 15px;
     min-height: 600px;

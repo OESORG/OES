@@ -101,15 +101,25 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionText,ChapterId,Type,Difficulty")] Question question)
+        public ActionResult Edit([Bind(Include = "QuestionId,QuestionText,ChapterId,Type,Difficulty")] Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(question).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index", new { id = question.ChapterId });
+                var result = ExamModule.UpdateQuestion(question);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index", new { id = result.ReturnObject.ChapterId });
+                }
+                else
+                {
+                    foreach (var err in result.Errors)
+                    {
+                        ModelState.AddModelError(err.Key, err.Message);
+                    }
+                }
             }
             return View(question);
+           
         }
 
         // GET: InstructorArea/Questions/Delete/5

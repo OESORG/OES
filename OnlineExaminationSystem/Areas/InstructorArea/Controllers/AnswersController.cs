@@ -82,7 +82,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
                 var result = ExamModule.UpdateAnswer(answer);
                 if (result.Success)
                 {
-                    return RedirectToAction("Index", new { id = (result.ReturnObject as Answer).QuestionId });
+                    return RedirectToAction("Index", new { id = result.ReturnObject.QuestionId });
                 }
                 else
                 {

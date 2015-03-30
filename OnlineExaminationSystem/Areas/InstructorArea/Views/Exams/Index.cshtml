@@ -24,80 +24,147 @@
             @Html.ActionLink("Add Exam", "Create", new { id = Model.SelectedRegistration.RegistrationId })
         </div>
         <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover dataTable no-footer">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().StartDate)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().EndDate)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfHighQuestion)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().HighQuestionScore)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfMediumQuestion)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().MediumQuestionScore)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfLowQuestion)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().LowQuestionScore)
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.SelectedRegistration.Exams)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.StartDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.EndDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.NumberOfHighQuestion)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.HighQuestionScore)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.NumberOfMediumQuestion)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.MediumQuestionScore)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.NumberOfLowQuestion)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.LowQuestionScore)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("Edit", "Edit", new { id=item.ExamId }) |
-                                            @Html.ActionLink("Details", "Details", new { id=item.ExamId }) |
-                                            <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = item.ExamId })">Delete</a>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
+            @*<div class="row">
 
-                        </table>
+                    <div class="col-md-12">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().StartDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().EndDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfHighQuestion)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().HighQuestionScore)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfMediumQuestion)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().MediumQuestionScore)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().NumberOfLowQuestion)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SelectedRegistration.Exams.FirstOrDefault().LowQuestionScore)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.SelectedRegistration.Exams)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StartDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EndDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumberOfHighQuestion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.HighQuestionScore)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumberOfMediumQuestion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MediumQuestionScore)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumberOfLowQuestion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LowQuestionScore)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.ExamId }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.ExamId }) |
+                                                <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = item.ExamId })">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>*@
+            @{
+    int examCounter = 1;
+    Model.SelectedExamId = string.IsNullOrWhiteSpace(Model.SelectedExamId) ? "" : Model.SelectedExamId;
+            }
+            @foreach (var exam in Model.SelectedRegistration.Exams)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel tree @(exam.ExamId.Equals(Model.SelectedExamId,StringComparison.OrdinalIgnoreCase) ? "" : "minimize") panel-primary">
+                            <div class="panel-heading">
+                                Exam( @(examCounter++) ) -> from: @exam.StartDate.ToString() to: @exam.EndDate.ToString()
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">@Html.LabelFor(modelItem => exam.NumberOfHighQuestion)</div>
+                                    <div class="col-md-2">@exam.NumberOfHighQuestion</div>
+                                    <div class="col-md-4">@Html.LabelFor(modelItem => exam.HighQuestionScore)</div>
+                                    <div class="col-md-2">@exam.HighQuestionScore</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">@Html.LabelFor(modelItem => exam.NumberOfMediumQuestion)</div>
+                                    <div class="col-md-2">@exam.NumberOfMediumQuestion</div>
+                                    <div class="col-md-4">@Html.LabelFor(modelItem => exam.MediumQuestionScore)</div>
+                                    <div class="col-md-2">@exam.MediumQuestionScore</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">@Html.LabelFor(modelItem => exam.NumberOfLowQuestion)</div>
+                                    <div class="col-md-2">@exam.NumberOfLowQuestion</div>
+                                    <div class="col-md-4">@Html.LabelFor(modelItem => exam.LowQuestionScore)</div>
+                                    <div class="col-md-2">@exam.LowQuestionScore</div>
+                                </div>
+                                @if (exam.ExamId.Equals(Model.SelectedExamId, StringComparison.OrdinalIgnoreCase) && ViewData.ModelState.Values.Any(ms => ms.Errors.Count > 0))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-danger" role="alert">
+
+                                                @foreach (var modelState in ViewData.ModelState.Values)
+                                                {
+                                                    foreach (var err in modelState.Errors)
+                                                    {
+                                                        <div>
+                                                            <span class="fa fa-warning" aria-hidden="true"></span>
+                                                            <span class="sr-only">Error:</span>
+                                                            @err.ErrorMessage
+                                                        </div>
+                                                    }
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a href="#" class="delete-button" data-delete-url="@Url.Action("Delete", new { id = exam.ExamId })">Delete</a> |
+                                        @Html.ActionLink("Generate", "Generate", new { id = exam.ExamId })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 }
@@ -106,8 +173,7 @@
     <script>
         (function () {
             var selectedReg = $('#selectedReg').val()
-            if (selectedReg && selectedReg.length > 0)
-            {
+            if (selectedReg && selectedReg.length > 0) {
                 $('.select-reg').val(selectedReg);
             }
             $('.select-reg').change(function () {

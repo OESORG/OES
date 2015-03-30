@@ -14,9 +14,9 @@ namespace OES.Modules.Instructor
     {
         public ChapterModule() { }
 
-        public Result Add(Chapter chapter)
+        public Result<Chapter> Add(Chapter chapter)
         {
-            var result = new Result();
+            var result = new Result<Chapter>();
             try
             {
                 OESData db = new OESData();

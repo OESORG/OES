@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Examination\Answer.cs" />
     <Compile Include="Examination\Chapter.cs" />
+    <Compile Include="Examination\ExamVersion.cs" />
     <Compile Include="Examination\Registration.cs" />
     <Compile Include="Examination\Exam.cs" />
     <Compile Include="Examination\Question.cs" />

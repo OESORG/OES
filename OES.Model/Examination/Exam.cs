@@ -13,6 +13,8 @@ namespace OES.Model.Examination
         public Exam()
         {
             ExamId = GenerateKey();
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
         }
 
         public string ExamId { get; set; }
@@ -50,6 +52,8 @@ namespace OES.Model.Examination
         [ForeignKey("RegistrationId")]
         public Registration Registration { get; set; }
         public string RegistrationId { get; set; }
+
+        public List<ExamVersion> Versions { get; set; }
 
     }
 }

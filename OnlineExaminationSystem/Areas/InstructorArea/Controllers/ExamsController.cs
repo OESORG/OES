@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using OES.Data;
 using OES.Model.Examination;
 using OnlineExaminationSystem.Areas.InstructorArea.Models;
+using OES.Modules.Instructor;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
@@ -52,44 +53,22 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Exams.Add(exam);
-                db.SaveChanges();
-                return RedirectToAction("Index", new {id = exam.RegistrationId });
+                ExamModule module = new ExamModule();
+                var result = module.AddExam(exam);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index", new { id = exam.RegistrationId });
+                }
+                else
+                {
+                    foreach (var err in result.Errors)
+                    {
+                        ModelState.AddModelError(err.Key, err.Message);
+                    }
+                }
+
             }
 
-            return View(exam);
-        }
-
-        // GET: InstructorArea/Exams/Edit/5
-        public ActionResult Edit(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Exam exam = db.Exams.Find(id);
-            if (exam == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.RegistrationId = new SelectList(db.Registrations, "RegistrationId", "SemesterId", exam.RegistrationId);
-            return View(exam);
-        }
-
-        // POST: InstructorArea/Exams/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ExamId,StartDate,EndDate,NumberOfHighQuestion,HighQuestionScore,NumberOfMediumQuestion,MediumQuestionScore,NumberOfLowQuestion,LowQuestionScore,RegistrationId")] Exam exam)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(exam).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index", new { id = exam.RegistrationId });
-            }
-            ViewBag.RegistrationId = new SelectList(db.Registrations, "RegistrationId", "SemesterId", exam.RegistrationId);
             return View(exam);
         }
 
@@ -102,6 +81,27 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
             return RedirectToAction("Index", new { id = regId });
         }
 
+        public ActionResult Generate(string id)
+        {
+            ExamModule module = new ExamModule();
+            var result = module.GenerateExamVersion(id);
+            if (result.Success)
+            {
+                return View("Exam", result.ReturnObject.Versions.FirstOrDefault());
+            }
+            else
+            {
+                foreach (var err in result.Errors)
+                {
+                    ModelState.AddModelError(err.Key, err.Message);
+                }
+                var model = new ExamViewModel();
+                model.SelectedRegistration = ExamModule.GetRegistrationForExams(result.ReturnObject.RegistrationId);
+                model.Registrations = Registrations;
+                model.SelectedExamId = id;
+                return View("Index", model);
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

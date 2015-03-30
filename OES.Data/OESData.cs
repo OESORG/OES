@@ -36,13 +36,15 @@ namespace OES.Data
 
         public DbSet<User> Users { get; set; }
 
-        public System.Data.Entity.DbSet<OES.Model.Examination.Exam> Exams { get; set; }
+        public DbSet<Exam> Exams { get; set; }
 
-        public System.Data.Entity.DbSet<OES.Model.Examination.Chapter> Chapters { get; set; }
+        public DbSet<Chapter> Chapters { get; set; }
 
-        public System.Data.Entity.DbSet<OES.Model.Examination.Question> Questions { get; set; }
+        public DbSet<Question> Questions { get; set; }
 
-        public System.Data.Entity.DbSet<OES.Model.Examination.Answer> Answers { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+
+        public DbSet<ExamVersion> ExamVersions { get; set; }
 
     }
 

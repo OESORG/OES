@@ -265,6 +265,7 @@
     <Content Include="img\find_user.png" />
     <Content Include="Scripts\component\deleteButton.js" />
     <Content Include="Scripts\component\jquery.datetimepicker.js" />
+    <Content Include="Scripts\component\tree.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Content\dataTables\dataTables.bootstrap.css" />
     <Content Include="Scripts\dataTables\dataTables.bootstrap.js" />
@@ -311,9 +312,9 @@
     <Content Include="Areas\InstructorArea\Views\Answers\Edit.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Answers\Index.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Create.cshtml" />
-    <Content Include="Areas\InstructorArea\Views\Exams\Delete.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Edit.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Index.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Exams\Exam.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

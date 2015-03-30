@@ -1,0 +1,26 @@
+﻿@model OES.Model.Examination.ExamVersion
+@{
+    ViewBag.Title = "Exam";
+}
+
+<h2>Exam</h2>
+
+@foreach (var q in Model.Questions)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">@q.QuestionText</div>
+        <div class="panel-body">
+            @foreach (var answer in q.Answers)
+            {
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" value="@answer.AnswerId" />
+                    </span>
+                    @answer.AnswerText
+                </div><!-- /input-group -->
+               
+            }
+        </div>
+    </div>
+}
+

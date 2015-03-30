@@ -24,3 +24,4 @@
 /// <reference path="morris/morris.js" />
 /// <reference path="morris/raphael-2.1.0.min.js" />
 /// <reference path="component/jquery.datetimepicker.js" />
+/// <reference path="component/tree.js" />

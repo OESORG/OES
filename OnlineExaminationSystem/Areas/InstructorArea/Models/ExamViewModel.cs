@@ -11,5 +11,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Models
         public Registration SelectedRegistration { get; set; }
 
         public List<Registration> Registrations { get; set; }
+
+        public string SelectedExamId { get; set; }
     }
 }

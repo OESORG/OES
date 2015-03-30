@@ -13,6 +13,7 @@ namespace OES.Modules.Instructor
 {
     public class ExamModule
     {
+        #region Chapter
         public List<Question> GetChapterQuestions(string chapterId)
         {
             OESData db = new OESData();
@@ -31,6 +32,9 @@ namespace OES.Modules.Instructor
                 .FirstOrDefault(c => c.ChapterId.Equals(chapterId, StringComparison.OrdinalIgnoreCase));
         }
 
+        #endregion
+
+        #region Question
         public List<Answer> GetAnswers(string questionId)
         {
             OESData db = new OESData();
@@ -46,9 +50,9 @@ namespace OES.Modules.Instructor
                 .FirstOrDefault(q => q.QuestionId.Equals(questionId, StringComparison.OrdinalIgnoreCase));
         }
 
-        public Result AddQuestion(Question question)
+        public Result<Question> AddQuestion(Question question)
         {
-            Result result = new Result();
+            var result = new Result<Question>();
             OESData db = new OESData();
             try
             {
@@ -89,9 +93,9 @@ namespace OES.Modules.Instructor
         }
 
 
-        public Result UpdateAnswer(Answer answer)
+        public Result<Answer> UpdateAnswer(Answer answer)
         {
-            Result result = new Result();
+            Result<Answer> result = new Result<Answer>();
             OESData db = new OESData();
             try
             {
@@ -115,7 +119,37 @@ namespace OES.Modules.Instructor
             }
             return result;
         }
+        public Result<Question> UpdateQuestion(Question question)
+        {
+            Result<Question> result = new Result<Question>();
+            OESData db = new OESData();
+            try
+            {
+                var dbQuestion = db.Questions.FirstOrDefault(a => a.QuestionId.Equals(question.QuestionId, StringComparison.OrdinalIgnoreCase));
+                dbQuestion.QuestionText = question.QuestionText;
+                dbQuestion.Difficulty = question.Difficulty;
+                dbQuestion.Type = question.Type;
 
+                db.SaveChanges();
+                db.Dispose();
+                result.Success = true;
+                result.ReturnObject = dbQuestion;
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.ReturnObject = question;
+                result.AttachedException = ex;
+                result.Errors = new List<ResultError>() { 
+                    new ResultError(){ Key="", Message = ex.Message}
+                };
+            }
+            return result;
+        }
+
+        #endregion
+
+        #region Exam
         public Registration GetRegistrationForExams(string registrationId)
         {
             OESData db = new OESData();
@@ -125,5 +159,108 @@ namespace OES.Modules.Instructor
                 .FirstOrDefault(r => r.RegistrationId.Equals(registrationId, StringComparison.OrdinalIgnoreCase));
         }
 
+
+        public Result<Exam> AddExam(Exam exam)
+        {
+            var result = new Result<Exam>();
+            OESData db = new OESData();
+            try
+            {
+                var errors = ValidateExam(exam);
+                if (errors.Count > 0)
+                {
+                    result.Errors = new List<ResultError>(errors);
+                    result.Success = false;
+                }
+                else
+                {
+                    db.Exams.Add(exam);
+                    db.SaveChanges();
+                    db.Dispose();
+                    result.Success = true;
+                    result.ReturnObject = exam; 
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.ReturnObject = exam;
+                result.AttachedException = ex;
+                result.Errors = new List<ResultError>() { 
+                    new ResultError(ex)
+                };
+            }
+            return result;
+
+        }
+
+        private List<ResultError> ValidateExam(Exam exam)
+        {
+            List<ResultError> errors = new List<ResultError>();
+            if (exam.StartDate <= DateTime.Now)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.StartDate, "Exam start date should be in the future."));
+            }
+            if (exam.EndDate <= exam.StartDate)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.EndDate, "Exam end date should be after the start date."));
+            }
+            if ((exam.NumberOfHighQuestion + exam.NumberOfMediumQuestion + exam.NumberOfLowQuestion) < 1)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.NumberOfHighQuestion, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.NumberOfMediumQuestion, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.NumberOfLowQuestion, "Number of questions should be more than zero."));
+            }
+            if (exam.NumberOfHighQuestion > 0 && exam.HighQuestionScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.HighQuestionScore, "Score shoud be greater than zero."));
+            }
+            if (exam.NumberOfMediumQuestion > 0 && exam.MediumQuestionScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MediumQuestionScore, "Score shoud be greater than zero."));
+            }
+            if (exam.NumberOfLowQuestion > 0 && exam.LowQuestionScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.LowQuestionScore, "Score shoud be greater than zero."));
+            }
+
+            return errors;
+        }
+
+
+        #endregion
+
+
+        public Result<Exam> GenerateExamVersion(string id)
+        {
+            OESData db = new OESData();
+            var exam = db.Exams
+                .Include(e => e.Registration)
+                .Include(e => e.Versions)
+                .FirstOrDefault(e => e.ExamId.Equals(id,StringComparison.OrdinalIgnoreCase));
+            Result<Exam> result = new Result<Exam>();
+            var questions = db.Questions.Include(q => q.Answers).Where(q => q.Chapter.RegistrationId.Equals(exam.RegistrationId, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            result.Errors = new List<ResultError>();
+            result.ReturnObject = exam;
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.High)) < exam.NumberOfHighQuestion)
+            {
+                result.Errors.Add(new ResultError("", "There is no enough high questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Medium)) < exam.NumberOfMediumQuestion)
+            {
+                result.Errors.Add(new ResultError("", "There is no enough medium questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Low)) < exam.NumberOfLowQuestion)
+            {
+                result.Errors.Add(new ResultError("", "There is no enough low questions to generate this exam."));
+            }
+            ExamVersion version = new ExamVersion();
+            version.Questions = new List<Question>();
+            version.Questions.AddRange(questions);
+            exam.Versions.Add(version);
+            result.Success = result.Errors.Count < 1;
+            return result;
+        }
     }
 }
