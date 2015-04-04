@@ -10,6 +10,7 @@ using OES.Data;
 using OES.Model.Examination;
 using OnlineExaminationSystem.Areas.InstructorArea.Models;
 using OES.Modules.Instructor;
+using OES.Modules.Common;
 
 namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 {
@@ -83,11 +84,11 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
 
         public ActionResult Generate(string id)
         {
-            ExamModule module = new ExamModule();
+            GenerateExamModule module = new GenerateExamModule();
             var result = module.GenerateExamVersion(id);
             if (result.Success)
             {
-                return View("Exam", result.ReturnObject.Versions.FirstOrDefault());
+                return View("Exam", result.ReturnObject);
             }
             else
             {

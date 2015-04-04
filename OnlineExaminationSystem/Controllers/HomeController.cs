@@ -33,7 +33,9 @@ namespace OnlineExaminationSystem.Controllers
 
         public ActionResult Courses()
         {
-            return View();
+            OESData db = new OESData();
+
+            return View(db.Courses.ToList());
         }
 
         public ActionResult Administration()

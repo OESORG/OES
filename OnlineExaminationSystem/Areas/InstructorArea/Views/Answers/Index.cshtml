@@ -41,7 +41,7 @@
                                         @Html.DisplayFor(modelItem => item.AnswerText)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IsCorrectAnswer)
+                                        @(item.IsCorrectAnswer ? "Correct" : "Wrong")
                                     </td>
                                     <td>
                                         @Html.ActionLink("Edit", "Edit", new { id = item.AnswerId })

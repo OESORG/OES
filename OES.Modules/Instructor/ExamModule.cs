@@ -230,37 +230,5 @@ namespace OES.Modules.Instructor
 
         #endregion
 
-
-        public Result<Exam> GenerateExamVersion(string id)
-        {
-            OESData db = new OESData();
-            var exam = db.Exams
-                .Include(e => e.Registration)
-                .Include(e => e.Versions)
-                .FirstOrDefault(e => e.ExamId.Equals(id,StringComparison.OrdinalIgnoreCase));
-            Result<Exam> result = new Result<Exam>();
-            var questions = db.Questions.Include(q => q.Answers).Where(q => q.Chapter.RegistrationId.Equals(exam.RegistrationId, StringComparison.OrdinalIgnoreCase)).ToList();
-
-            result.Errors = new List<ResultError>();
-            result.ReturnObject = exam;
-            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.High)) < exam.NumberOfHighQuestion)
-            {
-                result.Errors.Add(new ResultError("", "There is no enough high questions to generate this exam."));
-            }
-            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Medium)) < exam.NumberOfMediumQuestion)
-            {
-                result.Errors.Add(new ResultError("", "There is no enough medium questions to generate this exam."));
-            }
-            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Low)) < exam.NumberOfLowQuestion)
-            {
-                result.Errors.Add(new ResultError("", "There is no enough low questions to generate this exam."));
-            }
-            ExamVersion version = new ExamVersion();
-            version.Questions = new List<Question>();
-            version.Questions.AddRange(questions);
-            exam.Versions.Add(version);
-            result.Success = result.Errors.Count < 1;
-            return result;
-        }
     }
 }

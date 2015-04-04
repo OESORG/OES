@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace OES.Model.Examination
 {
-    public class Answer : BaseEntity 
+    public class AnswerVersion : BaseEntity 
     {
-        public Answer()
+        public AnswerVersion()
         {
-            AnswerId = GenerateKey();
+            AnswerVersionId = GenerateKey();
         }
         [Key]
-        public string AnswerId { get; set; }
+        public string AnswerVersionId { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
@@ -26,10 +26,15 @@ namespace OES.Model.Examination
         [Display(Name = "Is This Answer Correct")]
         public bool IsCorrectAnswer { get; set; }
 
-        public string QuestionId { get; set; }
 
-        [ForeignKey("QuestionId")]
-        public Question Question { get; set; }
+        [Required]
+        [Display(Name = "Is This User Answer")]
+        public bool IsThisUserAnswer { get; set; }
+
+        public string QuestionVersionId { get; set; }
+
+        [ForeignKey("QuestionVersionId")]
+        public QuestionVersion QuestionVersion { get; set; }
 
     }
 }

@@ -45,5 +45,7 @@ namespace OES.Model.Examination
 
         public List<Chapter> Chapters { get; set; }
         public List<Exam> Exams { get; set; }
+
+        public List<ExamVersion> ExamVersions { get; set; }
     }
 }

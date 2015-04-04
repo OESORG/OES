@@ -1,6 +1,7 @@
 ﻿@model OES.Model.Examination.ExamVersion
 @{
     ViewBag.Title = "Exam";
+    int questionNumber = 1;
 }
 
 <h2>Exam</h2>
@@ -8,16 +9,16 @@
 @foreach (var q in Model.Questions)
 {
     <div class="panel panel-default">
-        <div class="panel-heading">@q.QuestionText</div>
+        <div class="panel-heading"><span class="text-primary">Q (@(questionNumber++)):</span>&nbsp;@q.QuestionText</div>
         <div class="panel-body">
             @foreach (var answer in q.Answers)
             {
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <input type="radio" value="@answer.AnswerId" />
-                    </span>
-                    @answer.AnswerText
-                </div><!-- /input-group -->
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="@q.QuestionVersionId" value="@answer.AnswerVersionId">
+                        @answer.AnswerText
+                    </label>
+                </div>
                
             }
         </div>

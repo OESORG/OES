@@ -24,34 +24,42 @@
     <hr />
     <div class="row">
         <div class="col-md-6">
-            <h4>Students</h4>
-            @foreach (var student in Model.Students)
-            {
-                <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Students</div>
+                <div class="panel-body">
+                    @foreach (var student in Model.Students)
+                    {
+                        <div class="row">
 
-                    <div class="col-md-4">
-                        @student.Name
-                    </div>
-                    <div class="col-md-2">
-                        @Html.ActionLink("Add", "AddStudent", new { id = Model.Registration.RegistrationId, studentId = student.UserId })
+                            <div class="col-md-4">
+                                @student.Name
+                            </div>
+                            <div class="col-md-2">
+                                @Html.ActionLink("Add", "AddStudent", new { id = Model.Registration.RegistrationId, studentId = student.UserId })
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-            }
         </div>
         <div class="col-md-6">
-            <h4>Registered Students</h4>
-            @foreach (var student in Model.Registration.Students.Select(s => s.Student).ToList())
-            {
-                <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Registered Students</div>
+                <div class="panel-body">
+                    @foreach (var student in Model.Registration.Students.Select(s => s.Student).ToList())
+                    {
+                        <div class="row">
 
-                    <div class="col-md-4">
-                        @student.Name
-                    </div>
-                    <div class="col-md-2">
-                        @Html.ActionLink("Remove", "RemoveStudent", new { id = Model.Registration.RegistrationId, studentId = student.UserId })
-                    </div>
+                            <div class="col-md-4">
+                                @student.Name
+                            </div>
+                            <div class="col-md-2">
+                                @Html.ActionLink("Remove", "RemoveStudent", new { id = Model.Registration.RegistrationId, studentId = student.UserId })
+                            </div>
+                        </div>
+                    }
                 </div>
-            }
+            </div> 
         </div>
     </div>
 

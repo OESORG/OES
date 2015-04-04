@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examination\AnswerVersion.cs" />
     <Compile Include="Examination\Answer.cs" />
     <Compile Include="Examination\Chapter.cs" />
     <Compile Include="Examination\ExamVersion.cs" />
+    <Compile Include="Examination\QuestionVersion.cs" />
     <Compile Include="Examination\Registration.cs" />
     <Compile Include="Examination\Exam.cs" />
     <Compile Include="Examination\Question.cs" />
