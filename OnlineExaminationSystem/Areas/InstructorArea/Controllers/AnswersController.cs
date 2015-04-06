@@ -46,12 +46,20 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Answers.Add(answer);
-                db.SaveChanges();
+                var result = ExamModule.AddAnswer(answer);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index", new { id = result.ReturnObject.QuestionId });
+                }
+                else
+                {
+                    foreach (var err in result.Errors)
+                    {
+                        ModelState.AddModelError(err.Key, err.Message);
+                    }
+                }
                 return RedirectToAction("Index", new { id = answer.QuestionId });
             }
-
-            ViewBag.QuestionId = new SelectList(db.Questions, "QuestionId", "QuestionText", answer.QuestionId);
             return View(answer);
         }
 

@@ -20,34 +20,83 @@ namespace OES.Model.Examination
         public string ExamId { get; set; }
 
         [Required]
-        [Display(Name = "Exam Start Date & Time")]
+        [Display(Name = "Start Date & Time")]
         public DateTime StartDate { get; set; }
 
         [Required]
-        [Display(Name="Exam End Date & Time")]
+        [Display(Name="End Date & Time")]
         public DateTime EndDate { get; set; }
 
-        [Required]
-        [Display(Name = "Number of High Difficulty Questions")]
-        public int NumberOfHighQuestion { get; set; }
+        #region MCQ
 
         [Required]
-        [Display(Name="Score of High Question")]
-        public decimal HighQuestionScore { get; set; }
+        [Display(Name = "High Difficulty Number")]
+        public int MCQHigh { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal MCQHighScore { get; set; }
+        [Required]
+        [Display(Name = "Medium Difficulty Number")]
+        public int MCQMedium { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal MCQMediumScore { get; set; }
+        [Required]
+        [Display(Name = "Low Difficulty Number")]
+        public int MCQLow { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal MCQLowScore { get; set; }
+
+        #endregion
+
+
+        #region Complete
 
         [Required]
-        [Display(Name = "Number of Medium Difficulty Questions")]
-        public int NumberOfMediumQuestion { get; set; }
+        [Display(Name = "High Difficulty Number")]
+        public int CompleteHigh { get; set; }
         [Required]
-        [Display(Name = "Score of Medium Question")]
-        public decimal MediumQuestionScore { get; set; }
+        [Display(Name = "Score")]
+        public decimal CompleteHighScore { get; set; }
+        [Required]
+        [Display(Name = "Medium Difficulty Number")]
+        public int CompleteMedium { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal CompleteMediumScore { get; set; }
+        [Required]
+        [Display(Name = "Low Difficulty Number")]
+        public int CompleteLow { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal CompleteLowScore { get; set; }
+
+        #endregion
+
+        #region TrueFalse
 
         [Required]
-        [Display(Name = "Number of Low Difficulty Questions")]
-        public int NumberOfLowQuestion { get; set; }
+        [Display(Name = "High Difficulty Number")]
+        public int TrueFalseHigh { get; set; }
         [Required]
-        [Display(Name = "Score of Low Question")]
-        public decimal LowQuestionScore { get; set; }
+        [Display(Name = "Score")]
+        public decimal TrueFalseHighScore { get; set; }
+        [Required]
+        [Display(Name = "Medium Difficulty Number")]
+        public int TrueFalseMedium { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal TrueFalseMediumScore { get; set; }
+        [Required]
+        [Display(Name = "Low Difficulty Number")]
+        public int TrueFalseLow { get; set; }
+        [Required]
+        [Display(Name = "Score")]
+        public decimal TrueFalseLowScore { get; set; }
+
+        #endregion
+
 
         [ForeignKey("RegistrationId")]
         public Registration Registration { get; set; }

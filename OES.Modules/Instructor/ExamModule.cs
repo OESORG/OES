@@ -102,11 +102,49 @@ namespace OES.Modules.Instructor
                 var dbAnswer = db.Answers.FirstOrDefault(a => a.AnswerId.Equals(answer.AnswerId, StringComparison.OrdinalIgnoreCase));
                 dbAnswer.AnswerText = answer.AnswerText;
                 dbAnswer.IsCorrectAnswer = answer.IsCorrectAnswer;
-              
+                if (answer.IsCorrectAnswer)
+                {
+                    foreach (var otherCorrectAnswer in db.Answers.Where(a => a.QuestionId.Equals(answer.QuestionId, StringComparison.OrdinalIgnoreCase) && a.IsCorrectAnswer))
+                    {
+                        otherCorrectAnswer.IsCorrectAnswer = false;
+                    }
+                }
                 db.SaveChanges();
                 db.Dispose();
                 result.Success = true;
                 result.ReturnObject = dbAnswer;
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.ReturnObject = answer;
+                result.AttachedException = ex;
+                result.Errors = new List<ResultError>() { 
+                    new ResultError(){ Key="", Message = ex.Message}
+                };
+            }
+            return result;
+        }
+
+
+        public Result<Answer> AddAnswer(Answer answer)
+        {
+            Result<Answer> result = new Result<Answer>();
+            OESData db = new OESData();
+            try
+            {
+                db.Answers.Add(answer);
+                if (answer.IsCorrectAnswer)
+                {
+                    foreach (var otherCorrectAnswer in db.Answers.Where(a => a.QuestionId.Equals(answer.QuestionId, StringComparison.OrdinalIgnoreCase) && a.IsCorrectAnswer))
+                    {
+                        otherCorrectAnswer.IsCorrectAnswer = false;
+                    }
+                }
+                db.SaveChanges();
+                db.Dispose();
+                result.Success = true;
+                result.ReturnObject = answer;
             }
             catch (Exception ex)
             {
@@ -205,28 +243,79 @@ namespace OES.Modules.Instructor
             {
                 errors.Add(ResultError.AddPropertyError(exam, e => e.EndDate, "Exam end date should be after the start date."));
             }
-            if ((exam.NumberOfHighQuestion + exam.NumberOfMediumQuestion + exam.NumberOfLowQuestion) < 1)
-            {
-                errors.Add(ResultError.AddPropertyError(exam, e => e.NumberOfHighQuestion, "Number of questions should be more than zero."));
-                errors.Add(ResultError.AddPropertyError(exam, e => e.NumberOfMediumQuestion, "Number of questions should be more than zero."));
-                errors.Add(ResultError.AddPropertyError(exam, e => e.NumberOfLowQuestion, "Number of questions should be more than zero."));
-            }
-            if (exam.NumberOfHighQuestion > 0 && exam.HighQuestionScore <= 0)
-            {
-                errors.Add(ResultError.AddPropertyError(exam, e => e.HighQuestionScore, "Score shoud be greater than zero."));
-            }
-            if (exam.NumberOfMediumQuestion > 0 && exam.MediumQuestionScore <= 0)
-            {
-                errors.Add(ResultError.AddPropertyError(exam, e => e.MediumQuestionScore, "Score shoud be greater than zero."));
-            }
-            if (exam.NumberOfLowQuestion > 0 && exam.LowQuestionScore <= 0)
-            {
-                errors.Add(ResultError.AddPropertyError(exam, e => e.LowQuestionScore, "Score shoud be greater than zero."));
-            }
+            errors.AddRange(ValidateQuestionsNumber(exam));
+            errors.AddRange(ValidateQuestionScore(exam));
 
             return errors;
         }
 
+
+        private List<ResultError> ValidateQuestionsNumber(Exam exam)
+        {
+            var errors = new List<ResultError>();
+            int total = exam.MCQHigh + exam.MCQMedium + exam.MCQLow
+                + exam.CompleteHigh + exam.CompleteMedium + exam.CompleteLow
+                + exam.TrueFalseHigh + exam.TrueFalseMedium + exam.TrueFalseLow;
+            if (total < 1)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MCQHigh, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MCQMedium, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MCQLow, "Number of questions should be more than zero."));
+
+                errors.Add(ResultError.AddPropertyError(exam, e => e.CompleteHigh, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.CompleteMedium, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.CompleteLow, "Number of questions should be more than zero."));
+
+                errors.Add(ResultError.AddPropertyError(exam, e => e.TrueFalseHigh, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.TrueFalseMedium, "Number of questions should be more than zero."));
+                errors.Add(ResultError.AddPropertyError(exam, e => e.TrueFalseLow, "Number of questions should be more than zero."));
+            }
+            return errors;
+        }
+
+        private List<ResultError> ValidateQuestionScore(Exam exam)
+        {
+            var errors = new List<ResultError>();
+            if (exam.MCQHigh > 0 && exam.MCQHighScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MCQHighScore, "Enter valid score."));
+            }
+            if (exam.MCQMedium > 0 && exam.MCQMediumScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MCQMediumScore, "Enter valid score."));
+            }
+            if (exam.MCQLow > 0 && exam.MCQLowScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.MCQLowScore, "Enter valid score."));
+            }
+
+            if (exam.CompleteHigh > 0 && exam.CompleteHighScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.CompleteHighScore, "Enter valid score."));
+            }
+            if (exam.CompleteMedium > 0 && exam.CompleteMediumScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.CompleteMediumScore, "Enter valid score."));
+            }
+            if (exam.CompleteLow > 0 && exam.CompleteLowScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.CompleteLowScore, "Enter valid score."));
+            }
+
+            if (exam.TrueFalseHigh > 0 && exam.TrueFalseHighScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.TrueFalseHighScore, "Enter valid score."));
+            }
+            if (exam.TrueFalseMedium > 0 && exam.TrueFalseMediumScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.TrueFalseMediumScore, "Enter valid score."));
+            }
+            if (exam.TrueFalseLow > 0 && exam.TrueFalseLowScore <= 0)
+            {
+                errors.Add(ResultError.AddPropertyError(exam, e => e.TrueFalseLowScore, "Enter valid score."));
+            }
+            return errors;
+        }
 
         #endregion
 

@@ -36,6 +36,10 @@ namespace OES.Modules.Common
             {
                 ExamVersion version = WrapToExamVersion(exam);
                 version.Questions = PickupQuestions(version, questions);
+                foreach (var q in version.Questions)
+                {
+                    q.ExamVersionId = version.ExamVersionId;
+                }
                 exam.Versions.Add(version);
                 result.ReturnObject = version;
                 db.SaveChanges();
@@ -46,18 +50,11 @@ namespace OES.Modules.Common
         private List<ResultError> ValidateQuestions(Exam exam, List<Question> questions)
         {
             List<ResultError> errors = new List<ResultError>();
-            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.High)) < exam.NumberOfHighQuestion)
-            {
-                errors.Add(new ResultError("", "There is no enough high questions to generate this exam."));
-            }
-            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Medium)) < exam.NumberOfMediumQuestion)
-            {
-                errors.Add(new ResultError("", "There is no enough medium questions to generate this exam."));
-            }
-            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Low)) < exam.NumberOfLowQuestion)
-            {
-                errors.Add(new ResultError("", "There is no enough low questions to generate this exam."));
-            }
+
+            errors.AddRange(ValidateMCQQuestions(exam, questions));
+            errors.AddRange(ValidateCompleteQuestions(exam, questions));
+            errors.AddRange(ValidateTrueFalseQuestions(exam, questions));
+
             foreach (var q in questions.Where(q => q.Type != QuestionType.TrueFalse && q.Answers.Count < 4))
             {
                 errors.Add(new ResultError("", string.Format("Chapter: \"{0}\"Question: \"{1}\" with less than four answers.", q.Chapter.Title, q.QuestionText)));
@@ -69,16 +66,91 @@ namespace OES.Modules.Common
             return errors;
         }
 
+        #region Validate questions count
+        private List<ResultError> ValidateMCQQuestions(Exam exam, List<Question> questions)
+        {
+            List<ResultError> errors = new List<ResultError>();
+            QuestionType qType = QuestionType.MCQ;
+            questions = questions.Where(q => q.Type.Equals(qType)).ToList();
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.High)) < exam.MCQHigh)
+            {
+                errors.Add(new ResultError("", "There is no enough high " + qType + " questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Medium)) < exam.MCQMedium)
+            {
+                errors.Add(new ResultError("", "There is no enough medium " + qType + " questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Low)) < exam.MCQLow)
+            {
+                errors.Add(new ResultError("", "There is no enough low " + qType + " questions to generate this exam."));
+            }
+            return errors;
+        }
+
+        private List<ResultError> ValidateCompleteQuestions(Exam exam, List<Question> questions)
+        {
+            List<ResultError> errors = new List<ResultError>();
+            QuestionType qType = QuestionType.Complete;
+            questions = questions.Where(q => q.Type.Equals(qType)).ToList();
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.High)) < exam.CompleteHigh)
+            {
+                errors.Add(new ResultError("", "There is no enough high " + qType + " questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Medium)) < exam.CompleteMedium)
+            {
+                errors.Add(new ResultError("", "There is no enough medium " + qType + " questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Low)) < exam.CompleteLow)
+            {
+                errors.Add(new ResultError("", "There is no enough low " + qType + " questions to generate this exam."));
+            }
+            return errors;
+        }
+
+        private List<ResultError> ValidateTrueFalseQuestions(Exam exam, List<Question> questions)
+        {
+            List<ResultError> errors = new List<ResultError>();
+            QuestionType qType = QuestionType.TrueFalse;
+            questions = questions.Where(q => q.Type.Equals(qType)).ToList();
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.High)) < exam.TrueFalseHigh)
+            {
+                errors.Add(new ResultError("", "There is no enough high " + qType + " questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Medium)) < exam.TrueFalseMedium)
+            {
+                errors.Add(new ResultError("", "There is no enough medium " + qType + " questions to generate this exam."));
+            }
+            if (questions.Count(q => q.Difficulty.Equals(QuestionDifficulty.Low)) < exam.TrueFalseLow)
+            {
+                errors.Add(new ResultError("", "There is no enough low " + qType + " questions to generate this exam."));
+            }
+            return errors;
+        }
+
+        #endregion
+
         private ExamVersion WrapToExamVersion(Exam exam)
         {
             return new ExamVersion()
             {
-                NumberOfHighQuestion = exam.NumberOfHighQuestion,
-                NumberOfLowQuestion = exam.NumberOfLowQuestion,
-                NumberOfMediumQuestion = exam.NumberOfMediumQuestion,
-                HighQuestionScore = exam.HighQuestionScore,
-                MediumQuestionScore = exam.MediumQuestionScore,
-                LowQuestionScore = exam.LowQuestionScore,
+                MCQHigh = exam.MCQHigh,
+                MCQHighScore = exam.MCQHighScore,
+                MCQMedium = exam.MCQMedium,
+                MCQMediumScore = exam.MCQMediumScore,
+                MCQLow = exam.MCQLow,
+                MCQLowScore = exam.MCQLowScore,
+                CompleteHigh = exam.CompleteHigh,
+                CompleteHighScore = exam.CompleteHighScore,
+                CompleteMedium = exam.CompleteMedium,
+                CompleteMediumScore = exam.CompleteMediumScore,
+                CompleteLow = exam.CompleteLow,
+                CompleteLowScore = exam.CompleteLowScore,
+                TrueFalseHigh = exam.TrueFalseHigh,
+                TrueFalseHighScore = exam.TrueFalseHighScore,
+                TrueFalseMedium = exam.TrueFalseMedium,
+                TrueFalseMediumScore = exam.TrueFalseMediumScore,
+                TrueFalseLow = exam.TrueFalseLow,
+                TrueFalseLowScore = exam.TrueFalseLowScore,
                 StartDate = exam.StartDate,
                 EndDate = exam.EndDate,
                 Registration = exam.Registration,
@@ -90,54 +162,20 @@ namespace OES.Modules.Common
         private List<QuestionVersion> PickupQuestions(ExamVersion exam, List<Question> questions)
         {
             var finalQuestions = new List<QuestionVersion>();
-            var chapters = questions.Select(q => q.Chapter).OrderBy(c => c.Number).ToList();
-            var highQuestions = questions.Where(q => q.Difficulty.Equals(QuestionDifficulty.High)).ToList();
-            var mediumQuestions = questions.Where(q => q.Difficulty.Equals(QuestionDifficulty.Medium)).ToList();
-            var lowQuestions = questions.Where(q => q.Difficulty.Equals(QuestionDifficulty.Low)).ToList();
-
-
             var tempQuestions = new List<QuestionVersion>();
-            for (int i = 0; i < exam.NumberOfHighQuestion; i++)
-            {
-                foreach (var chapter in chapters)
-                {
-                    var question = highQuestions.FirstOrDefault(q => q.ChapterId.Equals(chapter.ChapterId, StringComparison.OrdinalIgnoreCase));
-                    if (question != null)
-                    {
-                        highQuestions.Remove(question);
-                        tempQuestions.Add(WrapToQuestionVersion(question));
-                        break;
-                    }
-                }
-            }
-            for (int i = 0; i < exam.NumberOfMediumQuestion; i++)
-            {
-                foreach (var chapter in chapters)
-                {
-                    var question = mediumQuestions.FirstOrDefault(q => q.ChapterId.Equals(chapter.ChapterId, StringComparison.OrdinalIgnoreCase));
-                    if (question != null)
-                    {
-                        mediumQuestions.Remove(question);
-                        tempQuestions.Add(WrapToQuestionVersion(question));
-                        break;
-                    }
-                }
-            }
 
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.MCQHigh, QuestionDifficulty.High, QuestionType.MCQ));
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.MCQMedium, QuestionDifficulty.Medium, QuestionType.MCQ));
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.MCQLow, QuestionDifficulty.Low, QuestionType.MCQ));
 
-            for (int i = 0; i < exam.NumberOfLowQuestion; i++)
-            {
-                foreach (var chapter in chapters)
-                {
-                    var question = lowQuestions.FirstOrDefault(q => q.ChapterId.Equals(chapter.ChapterId, StringComparison.OrdinalIgnoreCase));
-                    if (question != null)
-                    {
-                        lowQuestions.Remove(question);
-                        tempQuestions.Add(WrapToQuestionVersion(question));
-                        break;
-                    }
-                }
-            }
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.CompleteHigh, QuestionDifficulty.High, QuestionType.Complete));
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.CompleteMedium, QuestionDifficulty.Medium, QuestionType.Complete));
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.CompleteLow, QuestionDifficulty.Low, QuestionType.Complete));
+
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.TrueFalseHigh, QuestionDifficulty.High, QuestionType.TrueFalse));
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.TrueFalseMedium, QuestionDifficulty.Medium, QuestionType.TrueFalse));
+            tempQuestions.AddRange(PickupTypeOfQuestions(questions, exam.TrueFalseLow, QuestionDifficulty.Low, QuestionType.TrueFalse));
+
             List<int> selectedRandoms = new List<int>();
             for (int i = 0; i < tempQuestions.Count; i++)
             {
@@ -155,6 +193,27 @@ namespace OES.Modules.Common
             return finalQuestions;
         }
 
+        private List<QuestionVersion> PickupTypeOfQuestions(List<Question> questions, int count, QuestionDifficulty diffuclity, QuestionType type)
+        {
+            var selectedQuestions = new List<QuestionVersion>();
+            var chapters = questions.Select(q => q.Chapter).OrderBy(c => c.Number).ToList();
+            var qLst = questions.Where(q => q.Difficulty.Equals(diffuclity) && q.Type.Equals(type)).ToList();
+
+            for (int i = 0; i < count; i++)
+            {
+                foreach (var chapter in chapters)
+                {
+                    var question = qLst.FirstOrDefault(q => q.ChapterId.Equals(chapter.ChapterId, StringComparison.OrdinalIgnoreCase));
+                    if (question != null)
+                    {
+                        qLst.Remove(question);
+                        selectedQuestions.Add(WrapToQuestionVersion(question));
+                        break;
+                    }
+                }
+            }
+            return selectedQuestions;
+        }
 
         private QuestionVersion WrapToQuestionVersion(Question question)
         {

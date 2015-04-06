@@ -33,6 +33,12 @@ namespace OES.Model.Examination
         public Chapter Chapter { get; set; }
 
         [Required]
+        public string ExamVersionId { get; set; }
+
+        [ForeignKey("ExamVersionId")]
+        public ExamVersion ExamVersion { get; set; }
+
+        [Required]
         public QuestionDifficulty Difficulty { get; set; }
     }
 }

@@ -25,10 +25,13 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         }
 
         // GET: InstructorArea/Exams
-        public ActionResult Index(string id)
+        public ActionResult Index(string id = null)
         {
             var model = new ExamViewModel();
-            model.SelectedRegistration = ExamModule.GetRegistrationForExams(id);
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                model.SelectedRegistration = ExamModule.GetRegistrationForExams(id);
+            }
             model.Registrations = Registrations;
             return View(model);
         }
@@ -50,12 +53,11 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StartDate,EndDate,NumberOfHighQuestion,HighQuestionScore,NumberOfMediumQuestion,MediumQuestionScore,NumberOfLowQuestion,LowQuestionScore,RegistrationId")] Exam exam)
+        public ActionResult Create(Exam exam)
         {
             if (ModelState.IsValid)
             {
-                ExamModule module = new ExamModule();
-                var result = module.AddExam(exam);
+                var result = ExamModule.AddExam(exam);
                 if (result.Success)
                 {
                     return RedirectToAction("Index", new { id = exam.RegistrationId });
