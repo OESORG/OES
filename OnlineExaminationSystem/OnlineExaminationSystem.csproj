@@ -165,6 +165,9 @@
     <Compile Include="Areas\InstructorArea\Models\ChapterViewModel.cs" />
     <Compile Include="Areas\InstructorArea\Models\ExamViewModel.cs" />
     <Compile Include="Areas\InstructorArea\Models\QuestionViewModel.cs" />
+    <Compile Include="Areas\StudentArea\Controllers\CourseController.cs" />
+    <Compile Include="Areas\StudentArea\Controllers\StudentBaseController.cs" />
+    <Compile Include="Areas\StudentArea\StudentAreaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Administrator\Controllers\CoursesController.cs" />
@@ -315,6 +318,10 @@
     <Content Include="Areas\InstructorArea\Views\Exams\Edit.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Index.cshtml" />
     <Content Include="Areas\InstructorArea\Views\Exams\Exam.cshtml" />
+    <Content Include="Areas\StudentArea\Views\web.config" />
+    <Content Include="Areas\StudentArea\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\StudentArea\Views\Course\Index.cshtml" />
+    <Content Include="Areas\StudentArea\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -383,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\StudentArea\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

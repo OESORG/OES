@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\GenerateExamModule.cs" />
+    <Compile Include="Common\RandomList.cs" />
     <Compile Include="Core\Result.cs" />
     <Compile Include="Instructor\ChapterModule.cs" />
     <Compile Include="Instructor\ExamModule.cs" />

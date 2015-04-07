@@ -83,6 +83,9 @@ namespace OnlineExaminationSystem.Controllers
 
                                 case UserRole.Instructor:
                                     return Redirect("~/Instructor");
+
+                                case UserRole.Student:
+                                    return Redirect("~/Student");
                             }
                             return Redirect("~/");
                         }

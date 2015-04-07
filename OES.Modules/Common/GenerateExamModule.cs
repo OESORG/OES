@@ -196,9 +196,10 @@ namespace OES.Modules.Common
         private List<QuestionVersion> PickupTypeOfQuestions(List<Question> questions, int count, QuestionDifficulty diffuclity, QuestionType type)
         {
             var selectedQuestions = new List<QuestionVersion>();
-            var chapters = questions.Select(q => q.Chapter).OrderBy(c => c.Number).ToList();
             var qLst = questions.Where(q => q.Difficulty.Equals(diffuclity) && q.Type.Equals(type)).ToList();
-
+            var chapters = qLst.Select(q => q.Chapter).Distinct().OrderBy(c => c.Number).ToList();
+            chapters = RandomList<Chapter>.Random(chapters);
+            qLst = RandomList<Question>.Random(qLst);
             for (int i = 0; i < count; i++)
             {
                 foreach (var chapter in chapters)
@@ -208,12 +209,17 @@ namespace OES.Modules.Common
                     {
                         qLst.Remove(question);
                         selectedQuestions.Add(WrapToQuestionVersion(question));
-                        break;
+                        i++;
+                        if (i >= count)
+                        {
+                            break;
+                        }
                     }
                 }
             }
             return selectedQuestions;
         }
+        
 
         private QuestionVersion WrapToQuestionVersion(Question question)
         {

@@ -5,23 +5,77 @@
 }
 
 <h2>Exam</h2>
-
-@foreach (var q in Model.Questions)
+@if (Model.Questions.Count(q => q.Type.Equals(OES.Model.Examination.QuestionType.MCQ)) > 0)
 {
-    <div class="panel panel-default">
-        <div class="panel-heading"><span class="text-primary">Q (@(questionNumber++)):</span>&nbsp;@q.QuestionText</div>
-        <div class="panel-body">
-            @foreach (var answer in q.Answers)
-            {
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="@q.QuestionVersionId" value="@answer.AnswerVersionId">
-                        @answer.AnswerText
-                    </label>
+    <fieldset>
+        <legend>MCQ Questions</legend>
+        @foreach (var q in Model.Questions.Where(q => q.Type.Equals(OES.Model.Examination.QuestionType.MCQ)))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="text-primary">Q (@(questionNumber++)):</span>&nbsp;@q.QuestionText</div>
+                <div class="panel-body">
+                    @foreach (var answer in q.Answers)
+                    {
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="@q.QuestionVersionId" value="@answer.AnswerVersionId">
+                                @answer.AnswerText
+                            </label>
+                        </div>
+
+                    }
                 </div>
-               
-            }
-        </div>
-    </div>
+            </div>
+        }
+    </fieldset>
 }
+@if (Model.Questions.Count(q => q.Type.Equals(OES.Model.Examination.QuestionType.Complete)) > 0)
+{
+    <fieldset>
+        <legend>Complete Questions</legend>
+        @foreach (var q in Model.Questions.Where(q => q.Type.Equals(OES.Model.Examination.QuestionType.Complete)))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="text-primary">Q (@(questionNumber++)):</span>&nbsp;@q.QuestionText</div>
+                <div class="panel-body">
+                    @foreach (var answer in q.Answers)
+                    {
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="@q.QuestionVersionId" value="@answer.AnswerVersionId">
+                                @answer.AnswerText
+                            </label>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        }
+    </fieldset>
+}
+@if (Model.Questions.Count(q => q.Type.Equals(OES.Model.Examination.QuestionType.TrueFalse)) > 0)
+{
+    <fieldset>
+        <legend>True/False Questions</legend>
+        @foreach (var q in Model.Questions.Where(q => q.Type.Equals(OES.Model.Examination.QuestionType.TrueFalse)))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="text-primary">Q (@(questionNumber++)):</span>&nbsp;@q.QuestionText</div>
+                <div class="panel-body">
+                    @foreach (var answer in q.Answers)
+                    {
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="@q.QuestionVersionId" value="@answer.AnswerVersionId">
+                                @answer.AnswerText
+                            </label>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        }
+    </fieldset>
+}
+
 
