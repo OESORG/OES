@@ -34,6 +34,7 @@ namespace OnlineExaminationSystem.Areas.StudentArea.Controllers
                     .Include(s => s.Registrations.Select(sr => sr.Registration.Semester))
                     .Include(s => s.Registrations.Select(sr => sr.Registration.Course))
                     .Include(s => s.Registrations.Select(sr => sr.Registration.Instructor))
+                    .Include(s => s.Registrations.Select(sr => sr.Registration.Chapters))
                     .FirstOrDefault(s => s.UserId.Equals(Student.UserId, StringComparison.OrdinalIgnoreCase)).Registrations;
                     
                 List<Registration> regs = new List<Registration>();

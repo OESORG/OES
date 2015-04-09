@@ -1,0 +1,70 @@
+﻿@model OnlineExaminationSystem.Areas.StudentArea.Models.ExamViewModel
+
+@{
+    ViewBag.Title = "Exams";
+}
+
+<h2>Exams</h2>
+
+<select class="form-control select-reg" data-url="@Url.Action("Select")">
+    <option> -- Select Course -- </option>
+    @foreach (var reg in Model.Registrations.OrderBy(r => r.Semester.SemesterTitle).OrderBy(r => r.Course.Title))
+    {
+        <option value="@reg.RegistrationId">@reg.Semester.SemesterTitle / @reg.Course.Title</option>
+    }
+
+</select>
+<hr />
+@if (Model.SelectedRegistration != null)
+{
+    <input type="hidden" value="@Model.SelectedRegistration.RegistrationId" id="selectedReg" />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@(string.Format("{0} / {1} / Exams ({2})", Model.SelectedRegistration.Semester.SemesterTitle, Model.SelectedRegistration.Course.Title, Model.SelectedRegistration.Exams.Count))</h3>
+            
+        </div>
+        <div class="panel-body">
+           
+            @{
+    int examCounter = 1;
+    Model.SelectedExamId = string.IsNullOrWhiteSpace(Model.SelectedExamId) ? "" : Model.SelectedExamId;
+            }
+            @foreach (var exam in Model.SelectedRegistration.Exams)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel tree @(exam.ExamId.Equals(Model.SelectedExamId,StringComparison.OrdinalIgnoreCase) ? "" : "minimize") panel-primary">
+                            <div class="panel-heading">
+                                Exam( @(examCounter++) ) -> from: @exam.StartDate.ToString() to: @exam.EndDate.ToString()
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @Html.ActionLink("Take Exam", "Generate", new { id = exam.ExamId })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+@section scripts
+{
+    <script>
+        (function () {
+            var selectedReg = $('#selectedReg').val()
+            if (selectedReg && selectedReg.length > 0) {
+                $('.select-reg').val(selectedReg);
+            }
+            $('.select-reg').change(function () {
+                var $this = $(this);
+                if ($this.val().length > 0) {
+                    window.location = $this.data('url') + "/" + $this.val();
+                }
+            });
+        })();
+    </script>
+}

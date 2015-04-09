@@ -8,6 +8,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using OES.Modules.Core;
+using OES.Modules.Common;
 
 namespace OES.Modules.Instructor
 {
@@ -195,6 +196,28 @@ namespace OES.Modules.Instructor
                 .Include(r=> r.Semester)
                 .Include(r => r.Exams)
                 .FirstOrDefault(r => r.RegistrationId.Equals(registrationId, StringComparison.OrdinalIgnoreCase));
+        }
+
+
+        public Registration GetRegistrationForValidExams(string registrationId)
+        {
+            OESData db = new OESData();
+            var reg = db.Registrations.Include(r => r.Course)
+                .Include(r => r.Semester)
+                .Include(r => r.Exams)
+                .FirstOrDefault(r => r.RegistrationId.Equals(registrationId, StringComparison.OrdinalIgnoreCase));
+            List<Exam> validExams = new List<Exam>();
+            GenerateExamModule module = new GenerateExamModule();
+            foreach (var exam in reg.Exams)
+            {
+
+                if (module.IsValidExamForGeneration(exam))
+                {
+                    validExams.Add(exam);
+                }
+            }
+            reg.Exams = validExams;
+            return reg;
         }
 
 

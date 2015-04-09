@@ -165,8 +165,12 @@
     <Compile Include="Areas\InstructorArea\Models\ChapterViewModel.cs" />
     <Compile Include="Areas\InstructorArea\Models\ExamViewModel.cs" />
     <Compile Include="Areas\InstructorArea\Models\QuestionViewModel.cs" />
+    <Compile Include="Areas\StudentArea\Controllers\ChaptersController.cs" />
     <Compile Include="Areas\StudentArea\Controllers\CourseController.cs" />
+    <Compile Include="Areas\StudentArea\Controllers\ExamsController.cs" />
     <Compile Include="Areas\StudentArea\Controllers\StudentBaseController.cs" />
+    <Compile Include="Areas\StudentArea\Models\ChapterViewModel.cs" />
+    <Compile Include="Areas\StudentArea\Models\ExamViewModel.cs" />
     <Compile Include="Areas\StudentArea\StudentAreaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
@@ -179,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExamVersionViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PartialLoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -322,6 +327,11 @@
     <Content Include="Areas\StudentArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\StudentArea\Views\Course\Index.cshtml" />
     <Content Include="Areas\StudentArea\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\InstructorArea\Views\Exams\ExamResult.cshtml" />
+    <Content Include="Areas\StudentArea\Views\Exams\Exam.cshtml" />
+    <Content Include="Areas\StudentArea\Views\Exams\ExamResult.cshtml" />
+    <Content Include="Areas\StudentArea\Views\Exams\Index.cshtml" />
+    <Content Include="Areas\StudentArea\Views\Chapters\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -390,7 +400,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\StudentArea\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

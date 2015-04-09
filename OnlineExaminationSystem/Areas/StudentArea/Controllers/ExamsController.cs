@@ -8,15 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using OES.Data;
 using OES.Model.Examination;
-using OnlineExaminationSystem.Areas.InstructorArea.Models;
+using OnlineExaminationSystem.Areas.StudentArea.Models;
 using OES.Modules.Instructor;
 using OES.Modules.Common;
 using OnlineExaminationSystem.Models;
 
-namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
+namespace OnlineExaminationSystem.Areas.StudentArea.Controllers
 {
-    [Authorize(Roles = "Instructor")]
-    public class ExamsController : InstructorBaseController
+    public class ExamsController : StudentBaseController
     {
         private OESData db = new OESData();
 
@@ -31,7 +30,7 @@ namespace OnlineExaminationSystem.Areas.InstructorArea.Controllers
             var model = new ExamViewModel();
             if (!string.IsNullOrWhiteSpace(id))
             {
-                model.SelectedRegistration = ExamModule.GetRegistrationForExams(id);
+                model.SelectedRegistration = ExamModule.GetRegistrationForValidExams(id);
             }
             model.Registrations = Registrations;
             return View(model);

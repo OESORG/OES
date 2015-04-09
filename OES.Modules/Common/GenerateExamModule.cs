@@ -47,6 +47,20 @@ namespace OES.Modules.Common
             return result;
         }
 
+        public bool IsValidExamForGeneration(Exam exam)
+        {
+            OESData db = new OESData();
+            var dbExam = db.Exams
+                .Include(e => e.Registration)
+                .Include(e => e.Versions)
+                .FirstOrDefault(e => e.ExamId.Equals(exam.ExamId, StringComparison.OrdinalIgnoreCase));
+            var questions = db.Questions.Include(q => q.Answers)
+                .Include(q => q.Chapter).
+                Where(q => q.Chapter.RegistrationId.Equals(exam.RegistrationId, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+            return ValidateQuestions(dbExam, questions).Count < 1;
+        }
+
         private List<ResultError> ValidateQuestions(Exam exam, List<Question> questions)
         {
             List<ResultError> errors = new List<ResultError>();

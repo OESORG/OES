@@ -21,6 +21,7 @@
                         <th>
                             Course Title
                         </th>
+                        <th>Instructor</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -38,8 +39,10 @@
                                 @Html.DisplayFor(modelItem => item.Course.Title)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Instructor.Name)
+                            </td>
+                            <td>
                                 @Html.ActionLink("Chapters", "Index", "Chapters", routeValues: new { id = item.RegistrationId }, htmlAttributes: null) |
-                                @Html.ActionLink("Students", "Students", new { id = item.RegistrationId }) |
                                 @Html.ActionLink("Exams", "Index", "Exams", routeValues: new { id = item.RegistrationId }, htmlAttributes: null)
                             </td>
                         </tr>
