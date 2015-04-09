@@ -18,7 +18,6 @@ namespace OES.Modules.Common
             OESData db = new OESData();
             var exam = db.Exams
                 .Include(e => e.Registration)
-                .Include(e => e.Versions)
                 .FirstOrDefault(e => e.ExamId.Equals(id, StringComparison.OrdinalIgnoreCase));
             Result<ExamVersion> result = new Result<ExamVersion>();
             var questions = db.Questions.Include(q => q.Answers)
@@ -40,7 +39,7 @@ namespace OES.Modules.Common
                 {
                     q.ExamVersionId = version.ExamVersionId;
                 }
-                exam.Versions.Add(version);
+                db.ExamVersions.Add(version);
                 result.ReturnObject = version;
                 db.SaveChanges();
             }
@@ -52,7 +51,6 @@ namespace OES.Modules.Common
             OESData db = new OESData();
             var dbExam = db.Exams
                 .Include(e => e.Registration)
-                .Include(e => e.Versions)
                 .FirstOrDefault(e => e.ExamId.Equals(exam.ExamId, StringComparison.OrdinalIgnoreCase));
             var questions = db.Questions.Include(q => q.Answers)
                 .Include(q => q.Chapter).
@@ -168,9 +166,7 @@ namespace OES.Modules.Common
                 StartDate = exam.StartDate,
                 EndDate = exam.EndDate,
                 Registration = exam.Registration,
-                RegistrationId = exam.RegistrationId,
-                Exam = exam,
-                ExamId = exam.ExamId
+                RegistrationId = exam.RegistrationId
             };
         }
         private List<QuestionVersion> PickupQuestions(ExamVersion exam, List<Question> questions)

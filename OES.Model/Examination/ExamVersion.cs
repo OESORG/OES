@@ -19,13 +19,7 @@ namespace OES.Model.Examination
         public string ExamVersionId { get; set; }
 
         public List<QuestionVersion> Questions { get; set; }
-
-        [Required]
-        public string ExamId { get; set; }
-
-        [ForeignKey("ExamId")]
-        public Exam Exam { get; set; }
-
+        
 
         [Required]
         [Display(Name = "Exam Start Date & Time")]

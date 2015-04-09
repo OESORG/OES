@@ -102,7 +102,6 @@ namespace OES.Model.Examination
         public Registration Registration { get; set; }
         public string RegistrationId { get; set; }
 
-        public List<ExamVersion> Versions { get; set; }
 
     }
 }
