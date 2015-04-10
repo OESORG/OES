@@ -30,19 +30,19 @@ namespace OES.Model.Examination
         #region MCQ
 
         [Required]
-        [Display(Name = "High Difficulty Number")]
+        [Display(Name = "Number OF High Question")]
         public int MCQHigh { get; set; }
         [Required]
         [Display(Name = "Score")]
         public decimal MCQHighScore { get; set; }
         [Required]
-        [Display(Name = "Medium Difficulty Number")]
+        [Display(Name = "Number OF Medium Question")]
         public int MCQMedium { get; set; }
         [Required]
         [Display(Name = "Score")]
         public decimal MCQMediumScore { get; set; }
         [Required]
-        [Display(Name = "Low Difficulty Number")]
+        [Display(Name = "Number OF Low  Question")]
         public int MCQLow { get; set; }
         [Required]
         [Display(Name = "Score")]
@@ -54,19 +54,19 @@ namespace OES.Model.Examination
         #region Complete
 
         [Required]
-        [Display(Name = "High Difficulty Number")]
+        [Display(Name = "Number OF High Question")]
         public int CompleteHigh { get; set; }
         [Required]
         [Display(Name = "Score")]
         public decimal CompleteHighScore { get; set; }
         [Required]
-        [Display(Name = "Medium Difficulty Number")]
+        [Display(Name = "Number OF Medium Question")]
         public int CompleteMedium { get; set; }
         [Required]
         [Display(Name = "Score")]
         public decimal CompleteMediumScore { get; set; }
         [Required]
-        [Display(Name = "Low Difficulty Number")]
+        [Display(Name = "Number OF Low Question")]
         public int CompleteLow { get; set; }
         [Required]
         [Display(Name = "Score")]
@@ -77,19 +77,19 @@ namespace OES.Model.Examination
         #region TrueFalse
 
         [Required]
-        [Display(Name = "High Difficulty Number")]
+        [Display(Name = "Number OF High Question")]
         public int TrueFalseHigh { get; set; }
         [Required]
         [Display(Name = "Score")]
         public decimal TrueFalseHighScore { get; set; }
         [Required]
-        [Display(Name = "Medium Difficulty Number")]
+        [Display(Name = "Number OF Medium Question")]
         public int TrueFalseMedium { get; set; }
         [Required]
         [Display(Name = "Score")]
         public decimal TrueFalseMediumScore { get; set; }
         [Required]
-        [Display(Name = "Low Difficulty Number")]
+        [Display(Name = "Number OF Low Question")]
         public int TrueFalseLow { get; set; }
         [Required]
         [Display(Name = "Score")]
