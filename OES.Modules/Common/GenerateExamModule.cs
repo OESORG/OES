@@ -210,8 +210,8 @@ namespace OES.Modules.Common
             var chapters = qLst.Select(q => q.Chapter).Distinct().OrderBy(c => c.Number).ToList();
             chapters = RandomList<Chapter>.Random(chapters);
             qLst = RandomList<Question>.Random(qLst);
-            for (int i = 0; i < count; i++)
-            {
+            int i = 0;
+            while (i < count) { 
                 foreach (var chapter in chapters)
                 {
                     var question = qLst.FirstOrDefault(q => q.ChapterId.Equals(chapter.ChapterId, StringComparison.OrdinalIgnoreCase));
